@@ -26,14 +26,22 @@ void Ash::run(bool showinfo /* = true */)
 		std::cin >> userCommand;
 		if (userCommand == "exit")
 			return;
-		if (userCommand == "help")
-			showHelp(), continue;
-		if (userCommand == "ls")
-			system("ls"), continue;
-		if (userCommand == "pwd")
-			system("pwd"), continue;
-		if (userCommand == "ps")
-			system("ps"), continue;
+		if (userCommand == "help") {
+			showHelp();
+			continue;
+		}
+		if (userCommand == "ls") {
+			system("ls");
+			continue;
+		}
+		if (userCommand == "pwd") {
+			system("pwd");
+			continue;
+		}
+		if (userCommand == "ps") {
+			system("ps"); 
+			continue;
+		}
 		if (userCommand == "kill") {
 			std::cin >> userCommand;
 			continue;
