@@ -32,6 +32,13 @@ void Ash::run(bool showinfo /* = true */)
 			system("ls");
 		if (userCommand == "pwd")
 			system("pwd");
+		if (userCommand == "ps")
+			system("ps");
+		if (userCommand == "kill") {
+			std::cin >> userCommand;
+			
+		}
+		system(userCommand.c_str());
 	}
 }
 
