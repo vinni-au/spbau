@@ -37,9 +37,11 @@ void Ash::run(bool showinfo /* = true */)
 		else if (userCommand == "kill") {
 			std::cin >> userCommand;
 			int pid = atoi(userCommand.c_str());
-			std::ostringstream cmd;
-			cmd << "kill " << pid;
-			system(cmd.str().c_str());
+			if (0 != pid) {
+				std::ostringstream cmd;
+				cmd << "kill " << pid;
+				system(cmd.str().c_str());
+			}
 		} else system(userCommand.c_str());
 	}
 }
