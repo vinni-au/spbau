@@ -1,9 +1,18 @@
-lab1: main
-	g++ main.o -o ash
+CC=g++
+CPPFLAGS+=-g3 -Werror
+
+all: lab1
+
+lab1: main ash
+	$(CC) main.o ash.o -o ash
+	
+ash: ash.cpp ash.hpp
+	$(cc) $(CPPFLAGS) -c ash.cpp
 	
 main: main.cpp
-	g++ -g3 -Werror -c main.cpp
+	$(CC) $(CPPFLAGS) -c main.cpp
 	
 clean:
-	rm ash
-	rm main.o
+	rm -f *.o ash
+	
+default: lab1
