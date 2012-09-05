@@ -41,7 +41,7 @@ void Ash::run(bool showinfo /* = true */)
 				std::ostringstream cmd;
 				cmd << "kill " << pid;
 				system(cmd.str().c_str());
-			} else std::cout << "Invalid PID. Must be a number" << std::endl;
+			} else std::cout << "Invalid PID. Must be a positive number" << std::endl;
 		} else system(userCommand.c_str());
 	}
 }
