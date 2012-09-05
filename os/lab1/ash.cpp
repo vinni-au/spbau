@@ -43,7 +43,9 @@ void Ash::run(bool showinfo /* = true */)
 			continue;
 		}
 		if (userCommand == "kill") {
-			std::cin >> userCommand;
+			int pid = 0;
+			std::cin >> pid;
+			std::cout << "PID: " << pid;
 			continue;
 		}
 		system(userCommand.c_str());
