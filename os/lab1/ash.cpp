@@ -26,29 +26,21 @@ void Ash::run(bool showinfo /* = true */)
 		std::cin >> userCommand;
 		if (userCommand == "exit")
 			return;
-		if (userCommand == "help") {
+		if (userCommand == "help")
 			showHelp();
-			continue;
-		}
-		if (userCommand == "ls") {
+		else if (userCommand == "ls")
 			system("ls");
-			continue;
-		}
-		if (userCommand == "pwd") {
+		else if (userCommand == "pwd")
 			system("pwd");
-			continue;
-		}
-		if (userCommand == "ps") {
+		else if (userCommand == "ps")
 			system("ps"); 
-			continue;
-		}
-		if (userCommand == "kill") {
-			int pid = 0;
-			std::cin >> pid;
-			std::cout << "PID: " << pid;
-			continue;
-		}
-		system(userCommand.c_str());
+		else if (userCommand == "kill") {
+			std::cin >> userCommand;
+			int pid = atoi(userCommand.c_str());
+			std::ostringstream cmd;
+			cmd << "kill " << pid;
+			system(cmd.str().c_str());
+		} else system(userCommand.c_str());
 	}
 }
 
