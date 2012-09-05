@@ -15,9 +15,10 @@ class Ash
 public:
 	explicit Ash();
 	
-	void run();
+	void run(bool showinfo = true);
 	
 private:
+	void showHelp();
 	
 };
 
