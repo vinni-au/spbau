@@ -1,8 +1,9 @@
 lab1: main
-	gcc main.o -o ash
+	g++ main.o -o ash
 	
 main: main.cpp
-	gcc -Werror -c main.cpp
+	g++ -g3 -Werror -c main.cpp
 	
 clean:
 	rm ash
+	rm main.o
