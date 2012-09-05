@@ -8,11 +8,12 @@
  ***************************/
 #include "ash.hpp"
 #include <iostream>
+#include <stdlib.h>
  
 Ash::Ash()
 {	}
  
-void Ash::run(bool showinfo)
+void Ash::run(bool showinfo /* = true */)
 {
 	if (showinfo) {
 		std::cout << "Ash command shell v0.1" << std::endl << std::endl;
@@ -27,6 +28,10 @@ void Ash::run(bool showinfo)
 			return;
 		if (userCommand == "help")
 			showHelp();
+		if (userCommand == "ls")
+			system("ls");
+		if (userCommand == "pwd")
+			system("pwd");
 	}
 }
 
