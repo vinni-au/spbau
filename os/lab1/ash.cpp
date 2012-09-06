@@ -8,6 +8,7 @@
  ***************************/
 #include "ash.hpp"
 #include <iostream>
+#include <sstream>
 #include <stdlib.h>
  
 Ash::Ash()
