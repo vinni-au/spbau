@@ -1,0 +1,2 @@
+ls -1 | grep -E '\.txt$' | wc -l
+ping 173.194.35.255 > res.txt 2> err.txt
