@@ -1,2 +1,6 @@
-ls -1 | grep -E '\.txt$' | wc -l
-ping 173.194.35.255 > res.txt 2> err.txt
+1) ls -1 | grep -E '\.txt$' | wc -l
+2) cal | grep -o -E '\033\[7m[0-9]{1,2}\033\[0m'
+3) ping 173.194.35.255 > res.txt 2> err.txt
+4) ps | tail -n +2 | awk '{print $4}' | grep -E '^r' > processes.txt
+5) echo "`cat writeself.txt`" > writeself.txt
+
