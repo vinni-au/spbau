@@ -19,6 +19,7 @@ public:
 	
 private:
 	void showHelp();
+	void runCmd(const char* cmd, const char* args = "");
 	
 };
 

@@ -1,7 +1,8 @@
 CC=g++
-CPPFLAGS=-g3 -Werror
+CPPFLAGS=-Werror
 
 all: lab1
+	rm -f *.o
 
 lab1: main ash
 	$(CC) main.o ash.o -o ash
