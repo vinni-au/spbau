@@ -1,0 +1,12 @@
+#include <iostream>
+
+
+int main()
+{
+	std::while (s != "0") {
+		std::cin >> s;
+		std::cout << s << std::endl;
+	}
+
+	return 0;
+}

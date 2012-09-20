@@ -1,0 +1,5 @@
+3
+asdf 3 4
+awef 3 6
+awsr 2 4 (2, 4) (8 , 6)
+ascf 3 4

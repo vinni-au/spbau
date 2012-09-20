@@ -1,0 +1,33 @@
+#task 1
+#sudo ifconfig | grep -oiE '([0-9A-F]{2}:){5}[0-9A-F]{2}'
+
+#task 2
+#sudo ifconfig | grep -oE '([12]?[0-9]?[0-9]\.){3}[12]?[0-9]?[0-9]'
+
+#task 3
+sed -e '
+1i<!DOCTYPE html>\n<html>\n<head>\n\t<title>Phonebook</title>\n</head>\n<body>\n\t<table border=1><tr align=center>\n\t\t<th>Name</th><th>Surname</th><th>Phone</th></tr>
+s/^/\t\t<tr><td>/
+s/,/<\/td><td>/g
+s/$/<\/td><\/tr>/
+$a\\t</table>\n</body>\n</html>' phonebook.csv > phonebook.html
+
+#task 5
+grep -E '^#include' test.c | sed -e '
+s/#include ["<]//
+s/[">]//' > /dev/null
+
+#task 6
+sudo ifconfig | sed -e '
+s/^$/------------------------------------------------------------------------/
+/\([12]\?[0-9]\?[0-9]\.\)\{3\}[12]\?[0-9]\?[0-9]/s/[0-9]/x/g
+$d' > /dev/null
+
+#extra task 1
+#grep -oE '"(.*\\.+.*|)"' test.c
+
+#extra task 2
+sed -e '
+s/\/\/.*$//
+/ *#/d; /^ *$/d
+/\/\*/,/\*\//d' test.c | grep -oE '"(.*\\.+.*|)"'
