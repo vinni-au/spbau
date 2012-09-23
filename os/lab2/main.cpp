@@ -1,181 +1,13 @@
 #include <iostream>
 #include <vector>
-#include <list>
 #include <cctype>
 #include <cstdlib>
-
-#define DEBUG
-//#define PARSE
+#include <cstdio>
+#include "data.hpp"
+#include "process.hpp"
+#include "scheduler.hpp"
 
 bool canbeeof = true;
-
-struct Task {
-	std::string id;
-	unsigned startTime;
-	unsigned workTime;
-	std::vector<std::vector<int> > ioBursts;
-
-	Task() {}
-};
-
-struct Data {
-	int q;
-	std::vector<Task*> tasks;
-
-	~Data();
-
-	int taskCount() const
-	{ return tasks.size(); }
-	
-	friend std::ostream& operator<<(std::ostream&, Data&);
-};
-
-std::ostream& operator<<(std::ostream& os, Data& data)
-{
-	os << "Quantum = " << data.q << std::endl;
-	std::vector<Task*>::iterator it = data.tasks.begin();
-	for (; it != data.tasks.end(); it++) {
-		os << " Task: " << (*it)->id << std::endl;
-	}
-}
-
-Data::~Data() 
-{
-	std::vector<Task*>::iterator it = tasks.begin();
-	for (; it != tasks.end(); it++)
-		delete *it;
-}
-
-class Process {
-public:
-	Process(Task *task);
-	~Process();
-
-	unsigned timeToEnd() const
-	{ return (m_task->workTime - m_time); }
-
-	unsigned timeToIO() const;
-	
-	bool done() const
-	{ return (m_time > m_task->workTime); }
-
-private:
-	Task* m_task;
-	unsigned m_time;
-};
-
-Process::Process(Task* task) :
-	m_time(0)
-{
-	m_task = new Task;
-	m_task->id = task->id;
-	m_task->startTime = task->startTime;
-	m_task->workTime = task->workTime;
-	m_task->ioBursts = task->ioBursts;
-}
-
-Process::~Process()
-{
-	delete m_task;
-}
-
-unsigned Process::timeToIO() const
-{
-	size_t size = m_task->ioBursts.size();
-	if (m_time >= m_task->ioBursts[size-1][1])
-		return 0;
-	unsigned cur;
-	unsigned min = static_cast<unsigned>(-1);
-	std::vector<std::vector<int> >::iterator it = m_task->ioBursts.begin();	
-	for (; it != m_task->ioBursts.end(); it++) {
-		if (m_time <= (*it)[1] && m_time >= (*it)[0])
-			return 0;
-		cur = (*it)[0] - m_time;
-		if (cur < min)
-			min = cur;
-	}
-	return min;
-}
-
-class Scheduler {
-public:
-	explicit Scheduler(Data* data);
-	std::string step();
-	std::vector<std::string> run();
-
-	void setData(Data* data)
-	{ m_data = data; }
-	Data* data() const
-	{ return m_data; }
-
-	bool isStopped() const
-	{ return m_stopped; }
-private:
-	Data* m_data;
-	bool m_stopped;
-
-	void start();
-	void reset();
-
-	unsigned m_time;
-	unsigned m_step;
-
-	std::vector<Process*> m_stoppedList;
-	std::vector<Process*> m_pausedList;
-	Process* m_activeCPU;
-	Process* m_activeIO;
-
-	void createProcesses();
-};
-
-Scheduler::Scheduler(Data* data) :
-	m_stopped(true), m_time(0), m_step(data->q)
-{
-	m_data = data;
-	createProcesses();
-}
-
-void Scheduler::createProcesses()
-{
-	std::vector<Task*>::iterator it = m_data->tasks.begin();
-	for (; it != m_data->tasks.end(); it++)
-		m_stoppedList.push_back(new Process(*it));
-}
-
-void Scheduler::reset()
-{
-	m_stopped = true;
-	m_time = -1;
-	m_activeCPU = 0;
-	m_activeIO = 0;
-	m_stoppedList.clear();
-	m_pausedList.clear();
-	createProcesses();
-}
-
-void Scheduler::start()
-{
-	reset();
-	m_stopped = false;
-#ifdef DEBUG
-	std::cout << "Simulation started" << std::endl;
-#endif
-}
-
-std::string Scheduler::step()
-{
-	if (m_stopped)
-		start();
-}
-
-std::vector<std::string> Scheduler::run()
-{
-	std::vector<std::string> res;
-	start();
-	while (!m_stopped)
-		res.push_back(step());
-	return res;
-}
 
 static void parseBursts(std::istream& s, Task* task)
 {
@@ -206,7 +38,9 @@ static void parseBursts(std::istream& s, Task* task)
 				int a = atoi(tonum.c_str());
 				if (a <= 0)
 					throw new std::istream::failure("Parse error");
-				b.push_back(a);
+				if (i == 0)
+					b.push_back(a);
+				else b.push_back(a+b[0]+1);
 #ifdef PARSE
 	std::cout << "     parsed number: " << a << std::endl;
 #endif
@@ -228,6 +62,7 @@ static void parseBursts(std::istream& s, Task* task)
 			}
 		}
 	}
+	s.unget();
 #ifdef PARSE
 	std::cout << "    Ended parse bursts" << std::endl << std::endl;
 #endif
@@ -253,8 +88,8 @@ static Data* parse(std::istream& s)
 			data->tasks.push_back(task);
 			canbeeof = false;
 			s >> task->id;
-			s >> task->workTime;
 			s >> task->startTime;
+			s >> task->workTime;
 			canbeeof = true;
 #ifdef PARSE
 	std::cout << "     Parsed: id = " << task->id <<
@@ -276,6 +111,10 @@ static Data* parse(std::istream& s)
 
 int main()
 {
+#ifdef DEBUG
+	freopen("test.txt","r", stdin);
+	freopen("out.txt","w", stdout);
+#endif
 	std::string s;
 	Data* data = parse(std::cin);
 	if (0 != data) {
@@ -284,8 +123,12 @@ int main()
 		std::cout << *data;
 #endif
 		Scheduler* sh = new Scheduler(data);
-		while (!sh->isStopped())
-			std::cout << sh->step();						
+		sh->step();
+		while (!sh->isStopped()) {
+		//	std::cout << sh->step() << std::endl;						
+			sh->step();
+			std::cout.flush();
+		}
 	} else {
 		std::cout << "WRONG_FORMAT" << std::endl;
 		return -1;

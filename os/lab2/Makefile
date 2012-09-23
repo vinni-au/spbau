@@ -1,5 +1,5 @@
 all:
-	@g++ -Werror main.cpp -o schd1
+	@g++ -Werror -g3 -D DEBUG -D PARSE main.cpp process.cpp data.cpp scheduler.cpp -o schd1
 	@rm -f *.o
 	@echo "Compile successfull. Executable name: schd1"
 
