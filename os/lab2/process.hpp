@@ -9,12 +9,15 @@ public:
 	~Process();
 
 	unsigned timeToEnd() const
-	{ return (m_task->workTime - m_time)-1; }
+	{
+		if (done())
+			return 0;
+		return (m_task->workTime - m_time)-1; }
 
 	unsigned timeToIO() const;
 	
 	bool done() const
-	{ return (m_time >= m_task->workTime); }
+	{ return (m_time+1 >= m_task->workTime); }
 
 	void next()
 	{ ++m_time; }

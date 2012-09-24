@@ -9,8 +9,8 @@
 class Scheduler {
 public:
 	explicit Scheduler(Data* data);
-	std::string step();
-	std::vector<std::string> run();
+	void step();
+	void run();
 
 	void setData(Data* data)
 	{ m_data = data; }
@@ -26,15 +26,26 @@ private:
 	void start();
 	void reset();
 
+	//! Current time (tick)
 	unsigned m_time;
+	//! Current step (quantum)
 	unsigned m_step;
+	//! Current time in quantum
+	unsigned m_qtime;
+	//! Done processes count
+	unsigned m_pdone;
 
-	std::vector<Process*> m_stoppedList;
-	std::vector<Process*> m_waitingList;
+	std::vector<Process*> m_waitingCpuList;
+	std::vector<Process*> m_waitingIoList;
+
 	Process* m_activeCPU;
 	Process* m_activeIO;
 
-	void pickNext();
+//	void pickNext();
+
+	void plan();
+	void advanceCPU();
+	void advanceIO();
 };
 
 #endif

@@ -2,21 +2,26 @@
 #include <sstream>
 
 Scheduler::Scheduler(Data* data) :
-	m_stopped(true), m_time(-1), m_step(data->q)
-{
-	m_data = data;
-}
+	m_stopped(true), 
+	m_time(0), 
+	m_step(data->q), 
+	m_qtime(0), 
+	m_pdone(0),
+	m_data(data)
+{	}
 
 void Scheduler::reset()
 {
-	m_stopped = true;
-	m_time = -1;
+	m_stopped 	= true;
+	m_time 		= 0;
 	m_activeCPU = 0;
-	m_activeIO = 0;
+	m_activeIO 	= 0;
+	m_pdone 	= 0;
+	m_qtime 	= 0;
 	//FIXME: it causes memory leak
 	//destroy all elements of the lists
-	m_stoppedList.clear();
-	m_waitingList.clear();
+	m_waitingIoList.clear();
+	m_waitingCpuList.clear();
 }
 
 void Scheduler::start()
@@ -28,12 +33,91 @@ void Scheduler::start()
 #endif
 }
 
+void Scheduler::plan()
+{
+	if (m_activeCPU) {
+		if (m_activeCPU->timeToIO()) 
+			m_waitingCpuList.push_back(m_activeCPU);
+		else 
+			m_activeIO = m_activeCPU;
+		m_activeCPU = 0;
+	}
+	if (m_waitingCpuList.size()) {
+		unsigned stimew = -1;
+		unsigned stimeio = -1;
+		std::vector<Process*>::iterator it = m_waitingCpuList.begin();
+		std::vector<Process*>::iterator cand;
+		for (; it != m_waitingCpuList.end(); it++) {
+				if ((*it)->timeToIO() < stimeio)
+					cand = it;
+				if ((*it)->timeToEnd() < stimew)
+					cand = it;
+		}
+		m_activeCPU = *cand;
+		m_waitingCpuList.erase(cand);
+	} else m_activeCPU = 0;
+}
+
+void Scheduler::advanceCPU()
+{
+	m_activeCPU->next();
+	++m_qtime;
+	std::cout << m_time << " " << m_activeCPU->m_task->id << std::endl;
+	std::cout.flush();
+	if (m_activeCPU->done() || m_activeCPU->timeToIO() == 0)
+		m_qtime = 0;
+	if (m_activeCPU->done())
+		++m_pdone;
+}
+
+void Scheduler::advanceIO()
+{
+	m_activeIO->next();
+	if (m_activeIO->timeToIO()) {//io ended
+		m_waitingCpuList.push_back(m_activeIO);
+		m_activeIO = 0;
+		if (m_waitingIoList.size()) {
+			std::vector<Process*>::iterator it=m_waitingIoList.begin();
+			m_activeIO = *it;
+			m_waitingIoList.erase(it);
+		}
+	}
+}
+
+void Scheduler::step()
+{
+	if (m_stopped)
+		start();
+
+	//create processes from tasks are coming now
+	std::vector<Task*>::iterator it = m_data->tasks.begin();
+	for (; it != m_data->tasks.end(); it++)
+		if ((*it)->startTime == m_time)
+			m_waitingCpuList.push_back(new Process(*it));
+
+	//perform planning if CPU not active or quantum is run out
+	if (m_activeCPU == 0 || m_qtime == 0)
+		plan();
+
+	if (m_activeCPU)
+		advanceCPU();
+	else {
+		std::cout << m_time << " IDLE" << std::endl;
+		std::cout.flush();
+	}
+
+	if (m_activeIO)
+		advanceIO();
+
+	++m_time;
+	if (m_qtime >= m_step)
+		m_qtime = 0;
+}
+
+/*
 std::string Scheduler::step()
 {
 	std::string result;
-	static unsigned qtime = 0;
-	static unsigned pdone = 0;
-	static Process* wasio = 0;
 
 	if (m_stopped)
 		start();
@@ -48,7 +132,7 @@ std::string Scheduler::step()
 	std::vector<Task*>::iterator it = m_data->tasks.begin();
 	for (; it != m_data->tasks.end(); it++)
 		if ((*it)->startTime == m_time)
-			m_waitingList.push_back(new Process(*it));
+			m_waitingCpuList.push_back(new Process(*it));
 
 	if (m_activeIO) {
 		m_activeIO->next();
@@ -56,6 +140,9 @@ std::string Scheduler::step()
 			m_waitingList.push_back(m_activeIO);
 			wasio = m_activeIO;
 			m_activeIO = 0;
+//-------------------testing
+			pickNext();
+			qtime = 0;
 		}	
 	}
 	if (!m_activeCPU) {
@@ -89,6 +176,7 @@ std::string Scheduler::step()
 			if (m_activeCPU->timeToIO() == 0) {
 				if (m_activeIO) {
 					m_waitingList.push_back(m_activeCPU);
+					m_activeCPU = 0;
 					pickNext();
 				} else {
 					m_activeIO = m_activeCPU;
@@ -96,9 +184,21 @@ std::string Scheduler::step()
 					qtime = 0;
 					pickNext();
 				}
-			} else if (qtime == 0 || qtime == m_data->q) { 
-				pickNext();	
-				qtime = 0;
+			} else {
+				if (m_activeIO)
+					if (m_activeIO->timeToIO()) {
+						m_waitingList.push_back(m_activeIO);
+						m_activeIO = 0;
+						qtime = 0;
+					}
+				if (qtime == 0 || qtime == m_data->q) { 
+					if (m_activeCPU->timeToIO() == 0 && m_activeIO == 0) {
+							m_activeIO = m_activeCPU;
+							m_activeCPU = 0;
+					}					
+					pickNext();	
+					qtime = 0;
+				}
 			}
 		}
 	} 
@@ -128,14 +228,13 @@ void Scheduler::pickNext()
 	m_activeCPU = (*cand);
 	m_waitingList.erase(cand);
 }
+*/
 
-std::vector<std::string> Scheduler::run()
+void Scheduler::run()
 {
-	std::vector<std::string> res;
 	start();
 	while (!m_stopped)
-		res.push_back(step());
-	return res;
+		step();
 }
 
 
