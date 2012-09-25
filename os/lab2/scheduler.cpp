@@ -39,8 +39,9 @@ void Scheduler::plan()
 	if (m_activeCPU) {
 		if (m_activeCPU->timeToIO()) 
 			m_waitingCpuList.push_back(m_activeCPU);
-		else 
+        else if (!m_activeIO)
 			m_activeIO = m_activeCPU;
+        else m_waitingIoList.push_back(m_activeCPU);
 		m_activeCPU = 0;
 	}
 	if (m_waitingCpuList.size()) {
