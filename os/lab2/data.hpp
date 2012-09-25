@@ -22,6 +22,8 @@ struct Data {
 
 	int taskCount() const
 	{ return tasks.size(); }
+
+    bool validate();
 	
 	friend std::ostream& operator<<(std::ostream&, Data&);
 };

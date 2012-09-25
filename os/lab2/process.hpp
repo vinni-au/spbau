@@ -10,21 +10,25 @@ public:
 
 	unsigned timeToEnd() const
 	{
-		if (done())
-			return 0;
-		return (m_task->workTime - m_time)-1; }
+        return (m_task->workTime - m_time);
+    }
 
 	unsigned timeToIO() const;
 	
 	bool done() const
-	{ return (m_time+1 >= m_task->workTime); }
+    { return (timeToEnd() <= 0); }
 
-	void next()
-	{ ++m_time; }
+    void next(bool cpu = true)
+    {
+        ++m_time;
+        if (cpu)
+            ++m_ptime;
+    }
 
 private:
 	Task* m_task;
 	unsigned m_time;
+    unsigned m_ptime;
 
 	friend class Scheduler;
 };

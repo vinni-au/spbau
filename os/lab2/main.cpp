@@ -40,7 +40,7 @@ static void parseBursts(std::istream& s, Task* task)
 					throw new std::istream::failure("Parse error");
 				if (i == 0)
 					b.push_back(a);
-				else b.push_back(a+b[0]+1);
+                else b.push_back(a+b[0]);
 #ifdef PARSE
 	std::cout << "     parsed number: " << a << std::endl;
 #endif
@@ -75,7 +75,6 @@ static Data* parse(std::istream& s)
 #endif
 	s.exceptions(std::ios_base::failbit | std::ios_base::badbit);
 	Data* data = new Data;
-	std::string str;
 	try {
 		unsigned q;
 		s >> q;
@@ -111,10 +110,8 @@ static Data* parse(std::istream& s)
 
 int main()
 {
-#ifdef DEBUG
 	freopen("test.txt","r", stdin);
 	freopen("out.txt","w", stdout);
-#endif
 	std::string s;
 	Data* data = parse(std::cin);
 	if (0 != data) {
@@ -122,13 +119,17 @@ int main()
 		std::cout << "Data readed. Task count: " << data->taskCount() << std::endl;
 		std::cout << *data;
 #endif
-		Scheduler* sh = new Scheduler(data);
-		sh->step();
-		while (!sh->isStopped()) {
-		//	std::cout << sh->step() << std::endl;						
-			sh->step();
-			std::cout.flush();
-		}
+        if (data->validate()) {
+            Scheduler* sh = new Scheduler(data);
+            sh->step();
+            while (!sh->isStopped()) {
+                sh->step();
+                std::cout.flush();
+            }
+        } else {
+            std::cout << "WRONG_DATA" << std::endl;
+            return -2;
+        }
 	} else {
 		std::cout << "WRONG_FORMAT" << std::endl;
 		return -1;

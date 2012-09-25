@@ -2,7 +2,7 @@
 #include "process.hpp"
 
 Process::Process(Task* task) :
-	m_time(0)
+    m_time(0), m_ptime(0)
 {
 	m_task = new Task;
 	m_task->id = task->id;
@@ -27,11 +27,9 @@ unsigned Process::timeToIO() const
 	unsigned min = static_cast<unsigned>(-1);
 	std::vector<std::vector<int> >::iterator it = m_task->ioBursts.begin();	
 	for (; it != m_task->ioBursts.end(); it++) {
-		if (m_time == (*it)[0])
+        if (m_time < (*it)[1] && m_time >= (*it)[0])
 			return 0;
-		if (m_time <= (*it)[1] && m_time > (*it)[0])
-			return 0;
-		cur = (*it)[0] - m_time;
+        cur = (*it)[0] - m_time;
 		if (cur < min)
 			min = cur;
 	}
