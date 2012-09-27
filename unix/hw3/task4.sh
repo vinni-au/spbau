@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ $# -gt 0 ] 
 then
 	if [ $1 = "-b" ] 

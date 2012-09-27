@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ $# -eq 2 ] 
 then
 	for x in $( seq $2 )

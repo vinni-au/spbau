@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ "`id -u`" -eq 0 ] 
 then
 	echo "Hi, root! Have a nice day!";
