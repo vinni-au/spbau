@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ $# -gt 0 ]
 then
 	str=`echo "$1" | rev`
@@ -8,3 +10,4 @@ then
 		echo "NO"
 	fi
 fi
+
