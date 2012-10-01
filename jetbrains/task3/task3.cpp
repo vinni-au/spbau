@@ -11,7 +11,7 @@ int main()
 		file >> a;
 		if (file.eof())
 			break;
-		s = s ^ a;		
+		s ^= a;		
 	}
 
 	std::cout << "Number is " << s << std::endl;
