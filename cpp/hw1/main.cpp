@@ -59,50 +59,50 @@ size_t length(Node* left, Node* right)
     return res+1;
 }
 
-void merge(Node* left, Node* mid, Node* right)
+void merge(Node*& left, Node* mid)
 {
-    size_t len = length(left, right);
-    Node tmp[len];
+	Node* tmp = 0;
+	Node* tail = 0;
     Node* i1 = left;
     Node* i2 = mid;
-    int j = 0;
-    while (j < len) {
-        if (i1 == mid) {
-            (tmp+j)->value = i2->value;
-            i2 = i2->next;
-        } else if (i2 == right->next) {
-            (tmp+j)->value = i1->value;
-            i1 = i1->next;
-        } else {
-            if (i1->value < i2->value) {
-                (tmp+j)->value = i1->value;
-                i1 = i1->next;
-            } else {
-                (tmp+j)->value = i2->value;
-                i2 = i2->next;
-            }
-        }
-        ++j;
-    }
-    j = 0;
-    while (j < len) {
-        left->value = (tmp+j)->value;
-        left = left->next;
-        ++j;
-    }
+	if (i1->value < i2->value) {
+		tmp = i1;
+		i1 = i1->next;
+	} else {
+		tmp = i2;
+		i2 = i2->next;
+	}
+	tail = tmp;
+	while (i1 && i2) {
+		if (i1->value < i2->value) {
+			tail->next = i1;
+			i1 = i1->next;
+		} else {
+			tail->next = i2;
+			i2 = i2->next;
+		}
+		tail = tail->next;
+	}
+	if (i1)
+		tail->next = i1;
+	if (i2)
+		tail->next = i2;
+	left = tmp;
 }
 
-void mergeSort(Node* left, Node* right)
+void mergeSort(Node*& left)
 {
-    if (left == right)
+    if (left->next == 0)
         return;
     Node* mid = left;
-    size_t len = length(left, right);
+    size_t len = length(left);
     for (int i = 0; i < (len-1)/2; ++i)
         mid = mid->next;
-    mergeSort(left, mid);
-    mergeSort(mid->next, right);
-    merge(left, mid->next, right);
+	Node* midn = mid->next;
+	mid->next = 0;
+    mergeSort(left);
+    mergeSort(midn);
+    merge(left, midn);
 }
 
 int main()
@@ -114,14 +114,16 @@ int main()
 #else
     int n;
     int i = 0;
+
     do {
         std::cin >> n;
         add(g_head, n);
     } while (n && !std::cin.eof() && i++ < 1000);
+	g_tail->next = 0;
 #endif
     std::cout << "Array: " << std::endl;
     print(g_head);
-    mergeSort(g_head, g_tail);
+    mergeSort(g_head);
     std::cout << std::endl << "Sorted array: " << std::endl;
     print(g_head);
     return 0;
