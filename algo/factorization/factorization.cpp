@@ -45,11 +45,4 @@ int main()
 			break;
 	}
 	std::cout << std::endl;
-/*
-	std::vector<int>::iterator it = primes.begin();
-	for (; it != primes.end(); ++it)
-		std::cout << *it << " ";
-	std::cout << std::endl;
-	return 0;
-*/
 }

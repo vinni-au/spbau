@@ -1,5 +1,5 @@
 all:
-	g++ -Werror -g3 -lpthread main.cpp -o lab4
+	@g++ -Werror -g3 -D DEBUG -lpthread main.cpp -o lab4
 
 clean:
-	rm -f pr1
+	@rm -f pr1
