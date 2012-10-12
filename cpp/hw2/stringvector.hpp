@@ -11,7 +11,7 @@ struct StringVector
 	StringVector(const StringVector& other);
 	~StringVector();
 
-	string* at(size_t i);
+	string& at(size_t i);
 	size_t size() const;
 	size_t capacity() const;
 
@@ -20,12 +20,15 @@ struct StringVector
 	
 	void add(string s);
 
-	StringVector& operator=(const StringVector& other);
+	StringVector& operator=(StringVector& other);
+	friend ostream& operator<<(ostream& os, StringVector& v);
 
 private:
 	char* m_data;
 	size_t m_size;
 	size_t m_capacity;
+
+	void extend();
 };
 
 
