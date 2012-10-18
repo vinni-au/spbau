@@ -3,20 +3,24 @@
 #include <iostream>
 
 StringVector::StringVector(size_t size) :
-	m_size(size)
+	m_size(size),
+	m_capacity(size <= 0 ? 1 : 2*size),
+	m_data(0)
 {
-	if (size <= 0)
-		m_capacity = 1;
-	else m_capacity = 2*size;
 	m_data = new char[m_capacity*sizeof(string)];
+	for (int i = 0; i < size; ++i)
+		new (m_data + i*sizeof(string)) string;
 }
 
-StringVector::StringVector(const StringVector& other) :
+StringVector::StringVector(StringVector& other) :
 	m_size(other.m_size),
-	m_capacity(other.m_capacity)
+	m_capacity(other.m_capacity),
+	m_data(0)
 {
 	m_data = new char[m_capacity*sizeof(string)];
 	memcpy(m_data, other.m_data, m_size*sizeof(string));
+	for (int i = 0; i < m_size; ++i)
+		at(i) = other.at(i);
 }
 
 StringVector::~StringVector()
@@ -65,12 +69,10 @@ void StringVector::reserve(size_t newcapacity)
 
 void StringVector::add(string s)
 {
-	if (m_size == m_capacity) {
+	if (m_size == m_capacity)
 		extend();
-	}
-	new (m_data + m_size*sizeof(string)) string;
-	at(m_size) = s;
-	++m_size;
+
+	new (m_data + m_size++*sizeof(string)) string(s);
 }
 
 StringVector& StringVector::operator=(StringVector& other)

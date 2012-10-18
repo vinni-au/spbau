@@ -8,7 +8,7 @@ using namespace std;
 struct StringVector
 {
 	explicit StringVector(size_t size);
-	StringVector(const StringVector& other);
+	StringVector(StringVector& other);
 	~StringVector();
 
 	string& at(size_t i);
