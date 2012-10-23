@@ -57,7 +57,10 @@ else
 	puts $l $k "F"
 fi
 
-#while (( 1 ))
-#do
-#	draw
-#done
+while (( 1 ))
+do
+	draw
+	if [[ $x = $k && $y = $l ]]; then
+		exit
+	fi
+done
