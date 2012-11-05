@@ -16,6 +16,8 @@ int main(int argc, char* argv[])
 		for (ushort i = 0; i < rootblock; ++i)
 			sb.alloc(i);
 
+		//create root dir
+
 		std::vector<ubyte*> data = sb.data();
 		size_t size = data.size();
 		for (int i = 0; i < size; ++i) {

@@ -52,9 +52,9 @@ struct sblock
 	ushort bcount;
 	ubyte* map;
 	//size of block
-	ushort size;
+	uint size;
 
-	sblock(int num, int size) : size(size), bcount(num) {
+	sblock(int num, uint size) : size(size), bcount(num) {
 		int bytescount = num%8 ? num/8 + 1 : num/8;
 		if (bytescount < size)
 			bytescount = size;
@@ -122,6 +122,22 @@ struct sblock
 			res.push_back(cur);
 		}
 		return res;
+	}
+};
+
+struct dblock {
+	ubyte name[10];
+	ushort next;
+	ushort filecount;
+	ubyte* d;
+
+	dblock (std::string name, uint size) : next(0), filecount(0) {
+		d = new ubyte[size];
+		memset(d, 0, size);
+	}
+
+	ubyte* data() {
+		return d;
 	}
 };
 
