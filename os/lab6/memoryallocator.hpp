@@ -4,6 +4,16 @@
 #include <iostream>
 #include <list>
 
+struct MCB {
+    MCB* next;
+    size_t blocksize;
+    void* block;
+
+    MCB() : next(0), blocksize(0), block(0)
+    {	}
+};
+
+
 struct MemoryAllocator
 {
 	explicit MemoryAllocator(size_t size = 1024);
@@ -14,20 +24,9 @@ struct MemoryAllocator
 	friend std::ostream& operator<<(std::ostream& os, const MemoryAllocator& ma);
 
 private:
-	struct MCB {
-		MCB* next;
-		size_t blocksize;
-		void* block;
-
-		MCB() : next(0), blocksize(0), block(0)
-		{	}
-	};
-
 	size_t m_size;	
 	char* m_buffer;
 	size_t m_mcbsize;
-
-	std::list<std::pair<char*, size_t> > m_freemap;
 };
 
 #endif //_MEMORYALLOCATOR_HPP_
