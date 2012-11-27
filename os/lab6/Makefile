@@ -1,5 +1,5 @@
 all:
-	g++ main.cpp memoryallocator.cpp -g3 -o lab7
+	g++ main.cpp memoryallocator.cpp -Werror -g3 -o lab6
 
 clean:
-	rm -f lab7
+	rm -f lab6
