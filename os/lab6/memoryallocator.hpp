@@ -19,7 +19,17 @@ struct MemoryAllocator
 	explicit MemoryAllocator(size_t size = 1024);
 
 	void* alloc(size_t size);
-	void free(void* ptr);
+    bool free(void* ptr);
+
+    short r_ptr(void* ptr) const {
+        return (short)(((char*)ptr) - m_buffer);
+    }
+
+    void* ptr(short r_ptr) const {
+        return (void*)(m_buffer + r_ptr);
+    }
+
+    void info(std::ostream& os);
 	
 	friend std::ostream& operator<<(std::ostream& os, const MemoryAllocator& ma);
 

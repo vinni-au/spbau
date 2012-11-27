@@ -1,10 +1,11 @@
 #include "memoryallocator.hpp"
 #include <cstring>
+#include <algorithm>
 
 MemoryAllocator::MemoryAllocator(size_t size /* = 1024 */)
 {
-    if (size < 1024)
-        size = 1024;
+    if (size < 100)
+        size = 100;
     m_size = size;
     m_mcbsize = sizeof(MCB);
     m_buffer = new char[size];
@@ -40,7 +41,7 @@ void* MemoryAllocator::alloc(size_t size)
     return 0;
 }
 
-void MemoryAllocator::free(void* ptr)
+bool MemoryAllocator::free(void* ptr)
 {
     MCB* root = (MCB*)m_buffer;
     MCB* cur = root->next;
@@ -48,31 +49,33 @@ void MemoryAllocator::free(void* ptr)
         if (cur->block == ptr) {
             root->next = cur->next;
             memset(cur, 0, m_mcbsize);
+            return true;
         }
         root = cur;
         cur = cur->next;
     }
+    return false;
 }
 
-std::ostream& operator<<(std::ostream& os, const MemoryAllocator& ma)
+void MemoryAllocator::info(std::ostream &os)
 {
-    os << "Memory map for allocator" << std::endl;
-    os << "# - MCB byte" << std::endl;
-    os << "0 - free byte" << std::endl;
-    os << "1 - allocated byte" << std::endl;
     size_t curbyte = 0;
-    for (; curbyte < ma.m_mcbsize; ++curbyte)
-        os << "#";
     int curstate = 0;
     int block = 0;
-    MCB* next = ((MCB*)ma.m_buffer)->next;
-    while (curbyte < ma.m_size) {
-        if (((void*)next) == (void*)(ma.m_buffer + curbyte)) {
+    int n1 = 0; //allocated
+    int n2 = 0; //allocated to user
+    int n4 = 0; //max
+    int freec = 0;
+    for (; curbyte < m_mcbsize; ++curbyte)
+        n1++;
+    MCB* next = ((MCB*)m_buffer)->next;
+    while (curbyte < m_size) {
+        if (((void*)next) == (void*)(m_buffer + curbyte)) {
             curstate = 2;
-            block = ma.m_mcbsize;
+            block = m_mcbsize;
         }
         if (curstate == 0) {
-            os << "0";
+            freec++;
             curbyte++;
         }
         if (curstate == 2 && block == 0) {
@@ -84,12 +87,57 @@ std::ostream& operator<<(std::ostream& os, const MemoryAllocator& ma)
             next = next->next;
         }
         if (curstate == 2) {
-            os << "#";
+            n1++;
+            n4 = std::max(n4, freec);
+            freec = 0;
             block--;
             curbyte++;
         }
         if (curstate == 1) {
-            os << "1";
+            n2++;
+            block--;
+            n4 = std::max(n4, freec);
+            freec = 0;
+            curbyte++;
+        }
+    }
+    n4 = std::max(n4, freec);
+    n4 = std::max(0, int(n4 - m_mcbsize));
+    os << n1 << " " << n2 << " " << m_size - n1 << " " << n4 << std::endl;
+}
+
+std::ostream& operator<<(std::ostream& os, const MemoryAllocator& ma)
+{
+    size_t curbyte = 0;
+    for (; curbyte < ma.m_mcbsize; ++curbyte)
+        os << "m";
+    int curstate = 0;
+    int block = 0;
+    MCB* next = ((MCB*)ma.m_buffer)->next;
+    while (curbyte < ma.m_size) {
+        if (((void*)next) == (void*)(ma.m_buffer + curbyte)) {
+            curstate = 2;
+            block = ma.m_mcbsize;
+        }
+        if (curstate == 0) {
+            os << "f";
+            curbyte++;
+        }
+        if (curstate == 2 && block == 0) {
+            curstate = 1;
+            block = next->blocksize;
+        }
+        if (curstate == 1 && block == 0) {
+            curstate = 0;
+            next = next->next;
+        }
+        if (curstate == 2) {
+            os << "m";
+            block--;
+            curbyte++;
+        }
+        if (curstate == 1) {
+            os << "u";
             block--;
             curbyte++;
         }
