@@ -110,10 +110,8 @@ static Data* parse(std::istream& s)
 
 int main()
 {
-#ifdef DEBUG
 	freopen("test.txt","r", stdin);
 	freopen("out.txt","w", stdout);
-#endif
 	std::string s;
 	Data* data = parse(std::cin);
 	if (0 != data) {
