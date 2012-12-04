@@ -88,7 +88,8 @@ struct sblock
 					memcpy(result->map + i*fsi->bsize, buf, fsi->bsize);
 					file.close();
 					delete[] buf;
-				} else {
+				} 
+        else {
 					delete result;
 					return 0;
 				}
