@@ -14,7 +14,7 @@ int main()
             int b;
             cin >> b;
             smart_ptr* p = ma.alloc(b);
-            if (p->get() != 0)
+            if (p != 0)
                 cout << "+ " << p->id();
             else cout << "-";
             cout << endl;
@@ -26,7 +26,7 @@ int main()
             else cout << "-";
             cout << endl;
         } else if (s == "INFO") {
-            ma.info(cout);
+            ma.info(cout, true);
         } else if (s == "MAP") {
             cout << ma;
         } else if (s == "EXIT" || s == "QUIT")

@@ -63,6 +63,27 @@ private:
     friend struct MemoryAllocator;
 };
 
+struct MemoryAllocatorInfo {
+    int allocated;
+    int allocatedToUser;
+    int freeRaw;
+    int free;
+
+    MemoryAllocatorInfo() :
+        allocated(0),
+        allocatedToUser(0),
+        freeRaw(0),
+        free(0)
+    {   }
+
+    MemoryAllocatorInfo(int n1, int n2, int n3, int n4) :
+        allocated(n1),
+        allocatedToUser(n2),
+        freeRaw(n3),
+        free(n4)
+    {   }
+};
+
 struct MemoryAllocator
 {
     explicit MemoryAllocator(size_t size = 1024);
@@ -78,7 +99,7 @@ struct MemoryAllocator
         return (void*)(m_buffer + r_ptr);
     }
 
-    void info(std::ostream& os);
+    MemoryAllocatorInfo info(std::ostream& os = std::cout, bool out = false);
 
     void defragment();
 

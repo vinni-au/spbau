@@ -16,6 +16,11 @@ MemoryAllocator::MemoryAllocator(size_t size /* = 1024 */)
 
 smart_ptr* MemoryAllocator::alloc(size_t size)
 {
+    MemoryAllocatorInfo inf = info();
+    if (inf.freeRaw - m_mcbsize < size)
+        return 0;
+    if (inf.free < size)
+        defragment();
     MCB* root = (MCB*)m_buffer;
     while (root->next != 0) {
         size_t freesize = (char*)root->next - ((char*)root + m_mcbsize + root->blocksize);
@@ -36,7 +41,7 @@ smart_ptr* MemoryAllocator::alloc(size_t size)
         MCB* mcb = new ((char*)root+root->blocksize+m_mcbsize) MCB;
         mcb->blocksize = size;
         mcb->next = 0;
-        root->next = (MCB*)((char*)root+root->blocksize+m_mcbsize);
+        root->next = mcb;
         root->next->block = (char*)root->next + m_mcbsize;
         return new smart_ptr(root->next->block);
     }
@@ -51,6 +56,7 @@ bool MemoryAllocator::free(smart_ptr* ptr)
         if (cur->block == ptr->get()) {
             root->next = cur->next;
             memset(cur, 0, m_mcbsize);
+            defragment();
             return true;
         }
         root = cur;
@@ -61,10 +67,9 @@ bool MemoryAllocator::free(smart_ptr* ptr)
 
 void MemoryAllocator::defragment()
 {
-
 }
 
-void MemoryAllocator::info(std::ostream &os)
+MemoryAllocatorInfo MemoryAllocator::info(std::ostream &os, bool out /*= false*/)
 {
     size_t curbyte = 0;
     int curstate = 0;
@@ -110,7 +115,9 @@ void MemoryAllocator::info(std::ostream &os)
     }
     n4 = std::max(n4, freec);
     n4 = std::max(0, int(n4 - m_mcbsize));
-    os << n1 << " " << n2 << " " << m_size - n1 << " " << n4 << std::endl;
+    if (out)
+        os << n1 << " " << n2 << " " << m_size - n1 << " " << n4 << std::endl;
+    return MemoryAllocatorInfo(n1, n2, m_size - n1, n4);
 }
 
 std::ostream& operator<<(std::ostream& os, const MemoryAllocator& ma)
