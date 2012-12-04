@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstring>
-#include "global.h"
+#include "../global.h"
 
 int main(int argc, char* argv[])
 {
