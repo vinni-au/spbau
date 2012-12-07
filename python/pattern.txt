@@ -1,0 +1,4 @@
+"{title}"
+
+Hello, i'm writinng to {b}{b} you from {email}
+Regargs, {title}

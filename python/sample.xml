@@ -1,0 +1,8 @@
+<root>
+    <parent>
+        <sibling></sibling>
+        <sibling></sibling>
+        <poor />
+        <child></child>
+    </parent>
+</root>
