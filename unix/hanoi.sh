@@ -8,7 +8,7 @@ if [ $# -ne 1 ]; then
 fi
 
 N=$1 
-if [ $N -ge 10 ]; then
+if [ $N -gt 10 ]; then
 	echo "Error: N>10"
 	exit -1
 fi
