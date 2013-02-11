@@ -4,24 +4,28 @@ BigInt::BigInt()
     : buffer(0),
       neg(false),
       len(1),
-      capacity(8)
+      capacity(MINCAP)
 {
-    buffer = new char[8];
-    memset(buffer, 0, 8);
+    buffer = new char[MINCAP];
+    memset(buffer, 0, MINCAP);
 }
 
-BigInt::BigInt(long long n)
+BigInt::BigInt(int n)
     : buffer(0),
       neg(false),
       len(1),
-      capacity(8)
+      capacity(MINCAP)
 {
 #ifdef DEBUG
     static size_t count = 0;
     std::cout << "long long ctor #" << count++ << std::endl;
 #endif
-    buffer = new char[8];
-    memset(buffer, 0, 8);
+    buffer = new char[MINCAP];
+    memset(buffer, 0, MINCAP);
+    if (n == 0) {
+        len = 1;
+        return;
+    }
     if (n < 0) {
         neg = true;
         n = -n;
@@ -77,15 +81,6 @@ BigInt::~BigInt()
     delete[] buffer;
 }
 
-BigInt::operator long long()
-{
-    long long res = 0;
-    //TODO:
-    if (neg)
-        res = -res;
-    return res;
-}
-
 BigInt& BigInt::operator =(const BigInt& b)
 {
 #ifdef DEBUG
@@ -101,6 +96,7 @@ const BigInt operator -(const BigInt& a)
 {
     BigInt res(a);
     res.neg = !res.neg;
+    res.isZero();
     return res;
 }
 
@@ -110,14 +106,7 @@ void BigInt::swap(BigInt &b)
     static size_t count = 0;
     std::cout << "swap #" << count++ << std::endl;
 #endif
-    char* buffer_a = new char[capacity];
-    char* buffer_b = new char[b.capacity];
-    memcpy(buffer_a, buffer, len);
-    memcpy(buffer_b, b.buffer, b.len);
-    delete[] buffer;
-    delete[] b.buffer;
-    buffer = buffer_b;
-    b.buffer = buffer_a;
+    std::swap(buffer, b.buffer);
     std::swap(len, b.len);
     std::swap(capacity, b.capacity);
     std::swap(neg, b.neg);
@@ -135,17 +124,8 @@ BigInt operator + (const BigInt& a, const BigInt& b)
     res.neg = a.neg && b.neg;
 
     BigInt::add_helper(a.buffer, a.len, b.buffer, b.len, res);
+    res.isZero();
     return res;
-}
-
-BigInt operator + (const BigInt& a, long long b)
-{
-    return a + BigInt(b);
-}
-
-BigInt operator + (long long a, const BigInt& b)
-{
-    return BigInt(a) + b;
 }
 
 BigInt& BigInt::operator +=(const BigInt& b)
@@ -159,14 +139,8 @@ BigInt& BigInt::operator +=(const BigInt& b)
     else
         tmp = (*this) + b;
 
-    this->swap(tmp);
+    tmp.swap(*this);
 
-    return *this;
-}
-
-BigInt& BigInt::operator +=(long long b)
-{
-    (*this) += BigInt(b);
     return *this;
 }
 
@@ -185,17 +159,8 @@ BigInt operator - (const BigInt& a, const BigInt& b)
     else BigInt::sub_helper(b.buffer, b.len, a.buffer, a.len, res);
 
     res.neg = a.neg ^ !abigger;
+    res.isZero();
     return res;
-}
-
-BigInt operator - (const BigInt& a, long long b)
-{
-    return a - BigInt(b);
-}
-
-BigInt operator - (long long a, const BigInt& b)
-{
-    return BigInt(a) - b;
 }
 
 BigInt& BigInt::operator -=(const BigInt& b)
@@ -209,13 +174,7 @@ BigInt& BigInt::operator -=(const BigInt& b)
     else
         tmp = (*this) - b;
 
-    this->swap(tmp);
-    return *this;
-}
-
-BigInt& BigInt::operator -=(long long b)
-{
-    (*this) -= BigInt(b);
+    tmp.swap(*this);
     return *this;
 }
 
@@ -224,50 +183,45 @@ BigInt operator * (const BigInt& a, const BigInt& b)
     BigInt res;
     BigInt::mul_helper(a.buffer, a.len, b.buffer, b.len, res);
     res.neg = a.neg ^ b.neg;
+    res.isZero();
     return res;
-}
-
-BigInt operator * (const BigInt& a, long long b)
-{
-    return a * BigInt(b);
-}
-
-BigInt operator * (long long a, const BigInt& b)
-{
-    return BigInt(a) * b;
 }
 
 BigInt& BigInt::operator *=(const BigInt& b)
 {
     BigInt tmp = (*this)*b;
-    this->swap(tmp);
+    tmp.swap(*this);
     return *this;
 }
 
-BigInt& BigInt::operator *=(long long b)
-{
-    (*this) *= BigInt(b);
-    return *this;
-}
+#include <iostream>
 
 BigInt operator / (const BigInt& a, const BigInt& b)
 {
-    //FIXME: иногда не работает, висит в свапе на delete
     if (BigInt::lt_helper(a.buffer, a.len, b.buffer, b.len))
         return BigInt();
 
+    if (BigInt::eq_helper(a.buffer, a.len, b.buffer, b.len)) {
+        BigInt res(1);
+        res.neg = a.neg ^ b.neg;
+        res.isZero();
+        return res;
+    }
+
     BigInt res;
     res.realloc(a.len);
+    BigInt b_(b);
+    b_.neg = false;
     BigInt curv;
-    for (size_t i = a.len; i--; ) {
-        curv.levelup();
+    for (int i = a.len -1; i >= 0; --i) {
+        curv *= 10;
         curv.buffer[0] = a.buffer[i];
         char x = 0;
         char l = 0;
-        char r = 9;
+        char r = 10;
         while (l <= r) {
             char mid = (l + r) / 2;
-            BigInt cur = b * mid;
+            BigInt cur = b_ * mid;
             if (cur <= curv) {
                 x = mid;
                 l = mid + 1;
@@ -275,33 +229,19 @@ BigInt operator / (const BigInt& a, const BigInt& b)
                 r = mid - 1;
         }
         res.buffer[i] = x;
-        curv = curv - b * x;
+        curv -= b_ * x;
     }
     res.len = a.len;
     res.correctLen();
+    res.neg = a.neg ^ b.neg;
+    res.isZero();
     return res;
-}
-
-BigInt operator / (const BigInt& a, long long b)
-{
-    return a / BigInt(b);
-}
-
-BigInt operator / (long long a, const BigInt& b)
-{
-    return BigInt(a) / b;
 }
 
 BigInt& BigInt::operator /=(const BigInt& b)
 {
     BigInt tmp = (*this)/b;
-    this->swap(tmp);
-    return *this;
-}
-
-BigInt& BigInt::operator /=(long long b)
-{
-    (*this) /= BigInt(b);
+    tmp.swap(*this);
     return *this;
 }
 
@@ -310,18 +250,23 @@ BigInt operator % (const BigInt& a, const BigInt& b)
     if (BigInt::lt_helper(a.buffer, a.len, b.buffer, b.len))
         return BigInt(a);
 
+    if (BigInt::eq_helper(a.buffer, a.len, b.buffer, b.len))
+        return BigInt(0);
+
     BigInt res;
+    BigInt b_(b);
+    b_.neg = false;
     res.realloc(a.len);
     BigInt curv;
     for (size_t i = a.len; i--;) {
-        curv.levelup();
+        curv *= 10;
         curv.buffer[0] = a.buffer[i];
         char x = 0;
         char l = 0;
         char r = 10;
         while (l <= r) {
             int mid = (l + r) / 2;
-            BigInt cur = b * mid;
+            BigInt cur = b_ * mid;
             if (cur <= curv) {
                 x = mid;
                 l = mid + 1;
@@ -329,31 +274,17 @@ BigInt operator % (const BigInt& a, const BigInt& b)
                 r = mid - 1;
         }
         res.buffer[i] = x;
-        curv = curv - b*x;
+        curv = curv - b_*x;
     }
+    curv.neg = a.neg;
+    curv.isZero();
     return curv;
-}
-
-BigInt operator % (const BigInt& a, long long b)
-{
-    return a % BigInt(b);
-}
-
-BigInt operator % (long long a, const BigInt& b)
-{
-    return BigInt(a) % b;
 }
 
 BigInt& BigInt::operator %=(const BigInt& b)
 {
     BigInt tmp = (*this) % b;
-    this->swap(tmp);
-    return *this;
-}
-
-BigInt& BigInt::operator %=(long long b)
-{
-    (*this) %= BigInt(b);
+    tmp.swap(*this);
     return *this;
 }
 
@@ -365,29 +296,9 @@ bool operator == (const BigInt& a, const BigInt& b)
     return BigInt::eq_helper(a.buffer, a.len, b.buffer, b.len);
 }
 
-bool operator == (const BigInt& a, long long b)
-{
-    return a == BigInt(b);
-}
-
-bool operator == (long long a, const BigInt& b)
-{
-    return BigInt(a) == b;
-}
-
 bool operator != (const BigInt& a, const BigInt& b)
 {
     return !(a == b);
-}
-
-bool operator != (const BigInt& a, long long b)
-{
-    return a != BigInt(b);
-}
-
-bool operator != (long long a, const BigInt& b)
-{
-    return BigInt(a) != b;
 }
 
 bool operator < (const BigInt& a, const BigInt& b)
@@ -402,16 +313,6 @@ bool operator < (const BigInt& a, const BigInt& b)
                               BigInt::lt_helper(a.buffer, a.len, b.buffer, b.len);
 }
 
-bool operator < (const BigInt& a, long long b)
-{
-    return a < BigInt(b);
-}
-
-bool operator < (long long a, const BigInt& b)
-{
-    return BigInt(a) < b;
-}
-
 bool operator <= (const BigInt& a, const BigInt& b)
 {
     if (a.neg && !b.neg)
@@ -424,44 +325,14 @@ bool operator <= (const BigInt& a, const BigInt& b)
                               BigInt::le_helper(a.buffer, a.len, b.buffer, b.len);
 }
 
-bool operator <= (const BigInt& a, long long b)
-{
-    return a <= BigInt(b);
-}
-
-bool operator <= (long long a, const BigInt& b)
-{
-    return BigInt(a) <= b;
-}
-
 bool operator > (const BigInt& a, const BigInt& b)
 {
     return !(a <= b);
 }
 
-bool operator > (const BigInt& a, long long b)
-{
-    return a > BigInt(b);
-}
-
-bool operator > (long long a, const BigInt& b)
-{
-    return BigInt(a) > b;
-}
-
 bool operator >= (const BigInt& a, const BigInt& b)
 {
     return !(a < b);
-}
-
-bool operator >= (const BigInt& a, long long b)
-{
-    return a >= BigInt(b);
-}
-
-bool operator >= (long long a, const BigInt& b)
-{
-    return BigInt(a) >= b;
 }
 
 void BigInt::add_helper(char *a, size_t as, char *b, size_t bs, BigInt& res)
@@ -498,31 +369,6 @@ void BigInt::sub_helper(char *a, size_t as, char *b, size_t bs, BigInt &res)
     res.correctLen();
 }
 
-void BigInt::fft_helper(std::vector<fft_base_t> & res, bool inverse)
-{
-    size_t n = res.size();
-    if (n == 1)
-        return;
-
-    std::vector<fft_base_t> a0(n/2);
-    std::vector<fft_base_t> a1(n/2);
-    fft_helper(a0, inverse);
-    fft_helper(a1, inverse);
-
-    double angle = 2*M_PI/n * (inverse ? -1 : 1);
-    fft_base_t w(1);
-    fft_base_t wn(cos(angle), sin(angle));
-    for (size_t i = 0; i < n/2; ++i) {
-        res[i] = a0[i] + w * a1[i];
-        res[i + n/2] = a0[i] - w * a1[i];
-        if (inverse) {
-            res[i] /= 2;
-            res[i + n/2] /= 2;
-        }
-        w *= wn;
-    }
-}
-
 void BigInt::mul_helper(char *a, size_t as, char *b, size_t bs, BigInt &res)
 {
     res.realloc(as + bs);
@@ -543,6 +389,8 @@ void BigInt::correctLen()
 {
     while (len > 1 && buffer[len-1] == 0)
         --len;
+    if (len == 0)
+        ++len;
 }
 
 void BigInt::levelup()
@@ -555,37 +403,13 @@ void BigInt::levelup()
         len++;
 }
 
-bool BigInt::isZero() const
+bool BigInt::isZero()
 {
-    return (len == 1 && buffer[0] == 0);
-}
-
-void BigInt::mul_helper_fft(char *a, size_t as, char *b, size_t bs, BigInt &res)
-{
-    std::vector<fft_base_t> fa(a, a + as);
-    std::vector<fft_base_t> fb(b, b + bs);
-    size_t n = 1;
-    while (n < std::max(as, bs))
-        n <<= 1;
-    fa.resize(n);
-    fb.resize(n);
-    BigInt::fft_helper(fa, false);
-    BigInt::fft_helper(fb, false);
-    for (size_t i = 0; i < n; ++i)
-        fa[i] *= fb[i];
-    BigInt::fft_helper(fa, true);
-    res.realloc(as + bs);
-    for (size_t i = 0; i < n; ++i)
-        res.buffer[i] = char(fa[i].real() + 0.5);
-
-    int carry = 0;
-    size_t i = 0;
-    for (; i < n || carry; ++i) {
-        res.buffer[i] += carry;
-        carry = res.buffer[i] / 10;
-        res.buffer[i] %= 10;
+    if (len == 1 && buffer[0] == 0) {
+        neg = false;
+        return true;
     }
-    res.len = i;
+    return false;
 }
 
 bool BigInt::eq_helper(char *a, size_t as, char *b, size_t bs)
@@ -613,6 +437,8 @@ bool BigInt::lt_helper(char *a, size_t as, char *b, size_t bs)
     for (size_t i = as; i--;)
         if (a[i] < b[i])
             return true;
+        else if (a[i] > b[i])
+            return false;
 
     return false;
 }
@@ -623,7 +449,9 @@ bool BigInt::le_helper(char *a, size_t as, char *b, size_t bs)
         return as < bs;
 
     for (size_t i = as; i--;)
-        if (a[i] > b[i])
+        if (a[i] < b[i])
+            return true;
+        else if (a[i] > b[i])
             return false;
 
     return true;
@@ -645,8 +473,8 @@ void BigInt::realloc(size_t newcap)
 //    std::cout << "Realloc to " << newcap << std::endl;
 #endif
     char* newbuf = new char[newcap == 0 ? capacity <<= 1 : capacity = newcap];
+    memset(newbuf, 0, capacity);
     memcpy(newbuf, buffer, len);
-    memset(newbuf + len, 0, capacity - len);
     delete[] buffer;
     buffer = newbuf;
 }

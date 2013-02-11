@@ -7,9 +7,7 @@
 #include <cstring>
 #include <algorithm>
 #include <vector>
-#include <complex>
-#define M_PI       3.14159265358979323846
-#include <cmath>
+#define MINCAP 128
 #ifdef DEBUG
     #include <iostream>
 #endif
@@ -18,25 +16,17 @@
 class BigInt {
 public:
     BigInt();
-    BigInt(long long n);
+    BigInt(int n);
     BigInt(std::string s);
     BigInt(const BigInt& other);
 
     ~BigInt();
-
-    operator long long();
 
     BigInt& operator += (const BigInt& b);
     BigInt& operator -= (const BigInt& b);
     BigInt& operator *= (const BigInt& b);
     BigInt& operator /= (const BigInt& b);
     BigInt& operator %= (const BigInt& b);
-
-    BigInt& operator += (long long b);
-    BigInt& operator -= (long long b);
-    BigInt& operator *= (long long b);
-    BigInt& operator /= (long long b);
-    BigInt& operator %= (long long b);
 
     BigInt& operator = (const BigInt& b);
 
@@ -51,17 +41,6 @@ public:
     friend BigInt operator / (const BigInt& a, const BigInt& b);
     friend BigInt operator % (const BigInt& a, const BigInt& b);
 
-    friend BigInt operator + (const BigInt& a, long long b);
-    friend BigInt operator + (long long a, const BigInt& b);
-    friend BigInt operator - (const BigInt& a, long long b);
-    friend BigInt operator - (long long a, const BigInt& b);
-    friend BigInt operator * (const BigInt& a, long long b);
-    friend BigInt operator * (long long a, const BigInt& b);
-    friend BigInt operator / (const BigInt& a, long long b);
-    friend BigInt operator / (long long a, const BigInt& b);
-    friend BigInt operator % (const BigInt& a, long long b);
-    friend BigInt operator % (long long a, const BigInt& b);
-
     friend bool operator == (const BigInt& a, const BigInt& b);
     friend bool operator != (const BigInt& a, const BigInt& b);
     friend bool operator < (const BigInt& a, const BigInt& b);
@@ -69,24 +48,9 @@ public:
     friend bool operator > (const BigInt& a, const BigInt& b);
     friend bool operator >= (const BigInt& a, const BigInt& b);
 
-    friend bool operator == (const BigInt& a, long long b);
-    friend bool operator == (long long a, const BigInt& b);
-    friend bool operator != (const BigInt& a, long long b);
-    friend bool operator != (long long a, const BigInt& b);
-    friend bool operator < (const BigInt& a, long long b);
-    friend bool operator < (long long a, const BigInt& b);
-    friend bool operator <= (const BigInt& a, long long b);
-    friend bool operator <= (long long a, const BigInt& b);
-    friend bool operator > (const BigInt& a, long long b);
-    friend bool operator > (long long a, const BigInt& b);
-    friend bool operator >= (const BigInt& a, long long b);
-    friend bool operator >= (long long a, const BigInt& b);
-
-
-    bool isZero() const;
+    bool isZero();
 
 private:
-    typedef std::complex<double> fft_base_t;
     char* buffer;
     bool neg;
     size_t len;
@@ -100,7 +64,6 @@ private:
     //this assumes a >= b
     static void sub_helper(char* a, size_t as, char* b, size_t bs, BigInt& res);
     static void mul_helper(char* a, size_t as, char* b, size_t bs, BigInt& res);
-    static void mul_helper_fft(char* a, size_t as, char* b, size_t bs, BigInt& res);
     //this comparsion helpers doesn't deal with sign
     static bool lt_helper(char* a, size_t as, char* b, size_t bs);
     static bool le_helper(char* a, size_t as, char* b, size_t bs);
@@ -112,8 +75,6 @@ private:
     void correctLen();
     void levelup();
 
-    //fft
-    static void fft_helper(std::vector<fft_base_t> &res, bool inverse);
 };
 
 //--------------------fwd decl------------------------------
@@ -134,30 +95,5 @@ bool operator < (const BigInt& a, const BigInt& b);
 bool operator <= (const BigInt& a, const BigInt& b);
 bool operator > (const BigInt& a, const BigInt& b);
 bool operator >= (const BigInt& a, const BigInt& b);
-
-bool operator == (const BigInt& a, long long b);
-bool operator == (long long a, const BigInt& b);
-bool operator != (const BigInt& a, long long b);
-bool operator != (long long a, const BigInt& b);
-bool operator < (const BigInt& a, long long b);
-bool operator < (long long a, const BigInt& b);
-bool operator <= (const BigInt& a, long long b);
-bool operator <= (long long a, const BigInt& b);
-bool operator > (const BigInt& a, long long b);
-bool operator > (long long a, const BigInt& b);
-bool operator >= (const BigInt& a, long long b);
-bool operator >= (long long a, const BigInt& b);
-
-
-BigInt operator + (const BigInt& a, long long b);
-BigInt operator + (long long a, const BigInt& b);
-BigInt operator - (const BigInt& a, long long b);
-BigInt operator - (long long a, const BigInt& b);
-BigInt operator * (const BigInt& a, long long b);
-BigInt operator * (long long a, const BigInt& b);
-BigInt operator / (const BigInt& a, long long b);
-BigInt operator / (long long a, const BigInt& b);
-BigInt operator % (const BigInt& a, long long b);
-BigInt operator % (long long a, const BigInt& b);
 
 #endif // BIGINT_HPP
