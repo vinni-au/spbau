@@ -5,6 +5,8 @@
 #include <stack>
 #include <string>
 #include <map>
+#include <istream>
+#include <ostream>
 #include "global.h"
 #include "sminstruction.hpp"
 
@@ -19,6 +21,11 @@ private:
     std::map<std::string, size_t> m_ident_ind;
     std::map<std::string, size_t> m_label_ind;
     std::vector<SMInstruction> m_program;
-};
+
+    size_t m_ip;
+    bool m_running;
+
+    void step(std::istream& in, std::ostream& out);
+ };
 
 #endif // STACKMACHINE_HPP
