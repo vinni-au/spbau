@@ -1,12 +1,31 @@
 #include "stackmachine.hpp"
 
-StackMachine::StackMachine() :
+StackMachine::StackMachine(std::istream &in) :
     m_running(false),
     m_ip(0)
 {
+    do {
+        std::string curstr;
+        std::getline(in, curstr);
+        if (curstr.size() > 0) {
+            SMInstruction instr = SMInstruction::parse(curstr);
+            m_program.push_back(instr);
+            if (instr.op == SMInstruction::E)
+                break;
+            if (instr.op == SMInstruction::Label) {
+                m_labels.push_back(m_program.size() - 1);
+                m_label_ind[instr.ident] = m_labels.size() - 1;
+            }
+            if (instr.op == SMInstruction::L || instr.op == SMInstruction::S) {
+                m_variables.push_back(0);
+                m_ident_ind[instr.ident] = m_variables.size() - 1;
+            }
+        }
+    } while ((in.rdstate() & std::ios_base::eofbit) == 0);
+    m_running = true;
 }
 
-void StackMachine::step(std::istream &in, std::ostream &out) {
+void StackMachine::step(std::istream &in, std::ostream &out, std::ostream &err) {
     SMInstruction& current = m_program.at(m_ip);
 
     switch (current.op) {
@@ -17,8 +36,7 @@ void StackMachine::step(std::istream &in, std::ostream &out) {
         m_stack.push(current.arg);
         break;
     case SMInstruction::L: {
-        int_t value = m_stack.top();
-        m_stack.pop();
+        int_t value = pop(err);
         m_variables[m_ident_ind[current.ident]] = value;
         break;
     }
@@ -34,18 +52,15 @@ void StackMachine::step(std::istream &in, std::ostream &out) {
         break;
     }
     case SMInstruction::W: {
-        int_t value = m_stack.top();
-        m_stack.pop();
-        out << value;
+        int_t value = pop(err);
+        out << value << std::endl;
         break;
     }
     }
 
     if (current.op & 0b10000000) {
-        int_t value2 = m_stack.top();
-        m_stack.pop();
-        int_t value1 = m_stack.top();
-        m_stack.pop();
+        int_t value2 = pop(err);
+        int_t value1 = pop(err);
         int_t result = 0;
         switch(current.op) {
         case SMInstruction::Plus:
@@ -56,11 +71,20 @@ void StackMachine::step(std::istream &in, std::ostream &out) {
             break;
         case SMInstruction::Mult:
             result = value1 * value2;
+            break;
         case SMInstruction::Div:
-            result = value1 / value2;
+            if (value2 == 0) {
+                m_running = false;
+                err << "ERROR! Division by zero!" << std::endl;
+            } else
+                result = value1 / value2;
             break;
         case SMInstruction::Mod:
-            result = value1 % value2;
+            if (value2 == 0) {
+                m_running = false;
+                err << "ERROR! Division by zero!" << std::endl;
+            } else
+                result = value1 % value2;
             break;
         case SMInstruction::EqEq:
             result = value1 == value2 ? 1 : 0;
@@ -97,18 +121,26 @@ void StackMachine::step(std::istream &in, std::ostream &out) {
         m_ip = current.arg;
         break;
     case SMInstruction::JT: {
-        int_t value = m_stack.top();
-        m_stack.pop();
+        int_t value = pop(err);
         if (value != 0)
             m_ip = current.arg;
         break;
     }
     case SMInstruction::JF: {
-        int_t value = m_stack.top();
-        m_stack.pop();
+        int_t value = pop(err);
         if (value == 0)
             m_ip = current.arg;
         break;
     }
     }
+}
+
+inline int_t StackMachine::pop(std::ostream &err) {
+    if (m_stack.size() == 0) {
+        m_running = false;
+        err << "ERROR: cannot pop()" << std::endl;
+    }
+    int_t result = m_stack.top();
+    m_stack.pop();
+    return result;
 }

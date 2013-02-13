@@ -22,6 +22,7 @@ struct SMInstruction
         JT,
         JF,
         E,
+        Label,
         Plus = 0b10000000,
         Minus,
         Mult,
@@ -37,11 +38,19 @@ struct SMInstruction
         And
     };
 
-    char op;
+    short op;
     int_t arg;
     std::string ident;
 
     SMInstruction static parse(std::string str) {
+        size_t pos = str.find(':');
+        if (pos != std::string::npos) {
+            str.erase(str.begin() + pos, str.end());
+            SMInstruction result;
+            result.op = Label;
+            result.ident = str;
+            return result;
+        }
         std::stringstream ss;
         ss << str;
         char ch = 0;

@@ -7,13 +7,20 @@
 #include <map>
 #include <istream>
 #include <ostream>
+#include <iostream>
 #include "global.h"
 #include "sminstruction.hpp"
 
 class StackMachine
 {
 public:
-    StackMachine();
+    StackMachine(std::istream& in);
+
+    bool is_running() const {
+        return m_running;
+    }
+
+    void step(std::istream& in = std::cin, std::ostream& out = std::cout, std::ostream& err = std::cerr);
 private:
     std::stack<int_t> m_stack;
     std::vector<int_t> m_variables;
@@ -25,7 +32,7 @@ private:
     size_t m_ip;
     bool m_running;
 
-    void step(std::istream& in, std::ostream& out);
+    int_t pop(std::ostream& err = std::cerr);
  };
 
 #endif // STACKMACHINE_HPP
