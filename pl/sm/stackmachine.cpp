@@ -1,6 +1,6 @@
 #include "stackmachine.hpp"
 
-StackMachine::StackMachine(std::istream &in) :
+StackMachine::StackMachine(std::istream &in, std::ostream &err) :
     m_running(false),
     m_ip(0)
 {
@@ -13,12 +13,18 @@ StackMachine::StackMachine(std::istream &in) :
             if (instr.op == SMInstruction::E)
                 break;
             if (instr.op == SMInstruction::Label) {
-                m_labels.push_back(m_program.size() - 1);
-                m_label_ind[instr.ident] = m_labels.size() - 1;
+                if (m_label_ind.find(instr.ident) == m_label_ind.end()) {
+                    m_labels.push_back(m_program.size() - 1);
+                    m_label_ind[instr.ident] = m_labels.size() - 1;
+                } else {
+                    std::cerr << "ERROR: label already defined" << std::endl;
+                }
             }
             if (instr.op == SMInstruction::L || instr.op == SMInstruction::S) {
-                m_variables.push_back(0);
-                m_ident_ind[instr.ident] = m_variables.size() - 1;
+                if (m_ident_ind.find(instr.ident) == m_ident_ind.end()) {
+                    m_variables.push_back(0);
+                    m_ident_ind[instr.ident] = m_variables.size() - 1;
+                }
             }
         }
     } while ((in.rdstate() & std::ios_base::eofbit) == 0);

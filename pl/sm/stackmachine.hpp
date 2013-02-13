@@ -14,7 +14,7 @@
 class StackMachine
 {
 public:
-    StackMachine(std::istream& in);
+    StackMachine(std::istream& in = std::cin, std::ostream& err = std::cerr);
 
     bool is_running() const {
         return m_running;
