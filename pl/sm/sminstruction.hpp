@@ -115,6 +115,19 @@ struct SMInstruction
             }
         }
         if (result.op != E && result.op != R && result.op != W) {
+            if (result.op == J || result.op == JF || result.op == JT) {
+                std::string s;
+                ss >> s;
+                if (s.size() > 0) {
+                    if (std::isdigit(s.at(0))) {
+                        std::stringstream(s) >> result.arg;
+                    } else {
+                        result.ident = s;
+                        result.arg = -1;
+                    }
+                }
+
+            } else
             if (result.op == L || result.op == S)
                 ss >> result.ident;
             else ss >> result.arg;

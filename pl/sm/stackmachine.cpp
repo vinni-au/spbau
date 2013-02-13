@@ -124,18 +124,18 @@ void StackMachine::step(std::istream &in, std::ostream &out, std::ostream &err) 
 
     switch(current.op) {
     case SMInstruction::J:
-        m_ip = current.arg;
+        m_ip = ip_from_labels(current);
         break;
     case SMInstruction::JT: {
         int_t value = pop(err);
         if (value != 0)
-            m_ip = current.arg;
+            m_ip = ip_from_labels(current);
         break;
     }
     case SMInstruction::JF: {
         int_t value = pop(err);
         if (value == 0)
-            m_ip = current.arg;
+            m_ip = ip_from_labels(current);
         break;
     }
     }
@@ -149,4 +149,12 @@ inline int_t StackMachine::pop(std::ostream &err) {
     int_t result = m_stack.top();
     m_stack.pop();
     return result;
+}
+
+inline size_t StackMachine::ip_from_labels(const SMInstruction &instr) {
+    if (instr.arg >= 0) {
+        return instr.arg;
+    } else {
+        return m_labels[m_label_ind[instr.ident]];
+    }
 }

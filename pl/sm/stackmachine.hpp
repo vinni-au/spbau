@@ -33,6 +33,7 @@ private:
     bool m_running;
 
     int_t pop(std::ostream& err = std::cerr);
+    size_t ip_from_labels(SMInstruction const& instr);
  };
 
 #endif // STACKMACHINE_HPP
