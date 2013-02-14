@@ -1,0 +1,10 @@
+3
+Hello!
+My name is Billie Joe!
+I am playing in Green Day!
+5
+string1
+string2
+string3
+string4
+string5
