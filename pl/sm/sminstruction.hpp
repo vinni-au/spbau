@@ -126,7 +126,6 @@ struct SMInstruction
                         result.arg = -1;
                     }
                 }
-
             } else
             if (result.op == L || result.op == S)
                 ss >> result.ident;

@@ -1,34 +1,39 @@
 #include "stackmachine.hpp"
 
-StackMachine::StackMachine(std::istream &in, std::ostream &err) :
+StackMachine::StackMachine() :
     m_running(false),
     m_ip(0)
 {
+}
+
+StackMachine* StackMachine::parse(std::istream &in, std::ostream &err) {
+    StackMachine* result = new StackMachine;
     do {
         std::string curstr;
         std::getline(in, curstr);
         if (curstr.size() > 0) {
             SMInstruction instr = SMInstruction::parse(curstr);
-            m_program.push_back(instr);
+            result->m_program.push_back(instr);
             if (instr.op == SMInstruction::E)
                 break;
             if (instr.op == SMInstruction::Label) {
-                if (m_label_ind.find(instr.ident) == m_label_ind.end()) {
-                    m_labels.push_back(m_program.size() - 1);
-                    m_label_ind[instr.ident] = m_labels.size() - 1;
+                if (result->m_label_ind.find(instr.ident) == result->m_label_ind.end()) {
+                    result->m_labels.push_back(result->m_program.size() - 1);
+                    result->m_label_ind[instr.ident] = result->m_labels.size() - 1;
                 } else {
                     std::cerr << "ERROR: label already defined" << std::endl;
                 }
             }
             if (instr.op == SMInstruction::L || instr.op == SMInstruction::S) {
-                if (m_ident_ind.find(instr.ident) == m_ident_ind.end()) {
-                    m_variables.push_back(0);
-                    m_ident_ind[instr.ident] = m_variables.size() - 1;
+                if (result->m_ident_ind.find(instr.ident) == result->m_ident_ind.end()) {
+                    result->m_variables.push_back(0);
+                    result->m_ident_ind[instr.ident] = result->m_variables.size() - 1;
                 }
             }
         }
     } while ((in.rdstate() & std::ios_base::eofbit) == 0);
-    m_running = true;
+    result->m_running = true;
+    return result;
 }
 
 void StackMachine::step(std::istream &in, std::ostream &out, std::ostream &err) {
