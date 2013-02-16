@@ -18,5 +18,4 @@ public class DrinkerSleepStepDecision extends AbstractStepDecision {
 	public boolean isConflictedWith(AbstractStepDecision other) {
 		return true;
 	}
-
 }
