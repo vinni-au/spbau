@@ -4,17 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DrunkSimApp {
-	public void run(int w, int h) {		
+	public DrunkSimApp(int w, int h) {
 		field = new Field(w, h);
 		field.setCellObject(new DrinkerCellObject(field.getCell(0, 0)), 0, 0);
 		field.setCellObject(new PillarCellObject(field.getCell(w/2, h/2)), w/2, h/2);
-		
-		for (int s = 0; s < 200; ++s) {
+	}
+	
+	public void run() {
+		run(200);		
+	}
+	
+	public void run(int steps) {
+		for (int s = 0; s < steps; ++s) {
 			System.out.println("Step " + s);
 			step();
 			
 			field.print();
 		}
+		
 		System.out.println();
 	}
 	

@@ -13,7 +13,7 @@ public class PillarCellObject extends AbstractCellObject {
 
 	@Override
 	public char toChar() {
-		return 'C';
+		return 'I';
 	}
 
 	@Override

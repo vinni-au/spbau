@@ -11,7 +11,7 @@ public class DrinkerSleepStepDecision extends AbstractStepDecision {
 		DrinkerCellObject drinker = (DrinkerCellObject)cell.getObject();
 		drinker.setSleepSteps(5);
 		System.out.println("Going to sleep...");
-//		throw new RuntimeException();
+		throw new RuntimeException();
 	}
 
 	@Override
