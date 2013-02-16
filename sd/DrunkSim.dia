@@ -1819,19 +1819,19 @@
         <dia:point val="54.8252,17.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="54.7752,17.35;64.6277,19.65"/>
+        <dia:rectangle val="54.7752,17.35;67.1352,19.65"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
         <dia:point val="54.8252,17.4"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
-        <dia:real val="9.7525000000000013"/>
+        <dia:real val="12.26"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="2.1999999999999997"/>
       </dia:attribute>
       <dia:attribute name="name">
-        <dia:string>#DrinkerStepDecision#</dia:string>
+        <dia:string>#DrinkerSleepStepDecision#</dia:string>
       </dia:attribute>
       <dia:attribute name="stereotype">
         <dia:string>##</dia:string>
@@ -1929,7 +1929,7 @@
         <dia:point val="52.5451,12.0503"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="51.6951,12.0003;59.7514,17.3997"/>
+        <dia:rectangle val="51.6951,12.0003;61.0052,17.3997"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -1937,8 +1937,8 @@
       <dia:attribute name="orth_points">
         <dia:point val="52.5451,12.0503"/>
         <dia:point val="52.5451,15.1"/>
-        <dia:point val="59.7014,15.1"/>
-        <dia:point val="59.7014,17.3497"/>
+        <dia:point val="60.9552,15.1"/>
+        <dia:point val="60.9552,17.3497"/>
       </dia:attribute>
       <dia:attribute name="orth_orient">
         <dia:enum val="1"/>
