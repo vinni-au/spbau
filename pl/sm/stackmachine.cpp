@@ -11,19 +11,26 @@ StackMachine* StackMachine::parse(std::istream &in, std::ostream &err) {
     do {
         std::string curstr;
         std::getline(in, curstr);
+        trim(curstr);
         if (curstr.size() > 0) {
+            if (curstr.at(0) == '$') { //oh, it's a label!!
+                curstr.erase(curstr.begin(), curstr.begin() + 1);
+                int i = 0;
+                while (std::isalnum(curstr.at(i)))
+                    ++i;
+                std::string lbl = curstr.substr(0, i);
+                curstr.erase(curstr.begin(), curstr.begin() + i);
+                trim(curstr);
+                if (result->m_label_ind.find(lbl) == result->m_label_ind.end()) {
+                    result->m_labels.push_back(result->m_program.size());
+                    result->m_label_ind[lbl] = result->m_labels.size() - 1;
+                } else
+                    err << "Label is ambigous" << std::endl;
+            }
             SMInstruction instr = SMInstruction::parse(curstr);
             result->m_program.push_back(instr);
             if (instr.op == SMInstruction::E)
                 break;
-            if (instr.op == SMInstruction::Label) {
-                if (result->m_label_ind.find(instr.ident) == result->m_label_ind.end()) {
-                    result->m_labels.push_back(result->m_program.size() - 1);
-                    result->m_label_ind[instr.ident] = result->m_labels.size() - 1;
-                } else {
-                    std::cerr << "ERROR: label already defined" << std::endl;
-                }
-            }
             if (instr.op == SMInstruction::L || instr.op == SMInstruction::S) {
                 if (result->m_ident_ind.find(instr.ident) == result->m_ident_ind.end()) {
                     result->m_variables.push_back(0);
@@ -46,12 +53,12 @@ void StackMachine::step(std::istream &in, std::ostream &out, std::ostream &err) 
     case SMInstruction::C:
         m_stack.push(current.arg);
         break;
-    case SMInstruction::L: {
+    case SMInstruction::S: {
         int_t value = pop(err);
         m_variables[m_ident_ind[current.ident]] = value;
         break;
     }
-    case SMInstruction::S: {
+    case SMInstruction::L: {
         int_t value = m_variables[m_ident_ind[current.ident]];
         m_stack.push(value);
         break;
