@@ -8,3 +8,7 @@ string2
 string3
 string4
 string5
+1
+No
+1
+Yes

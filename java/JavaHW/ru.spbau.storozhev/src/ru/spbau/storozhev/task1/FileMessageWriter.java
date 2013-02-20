@@ -1,32 +1,42 @@
-/**
- * Created with IntelliJ IDEA.
- * User: Anton
- */
 package ru.spbau.storozhev.task1;
 import java.io.*;
-import java.nio.file.*;
 
+/**
+ * Writes Messages to file
+ *
+ * @author Anton Storozhev
+ */
 public class FileMessageWriter implements MessageWriter {
-    public FileMessageWriter(String fname) {
-        filename = fname;
-        File f = new File(filename);
-        if (!f.exists()) {
-            //create file
-        }
+    /**
+     * Constructs FileMessageWriter with given file name
+     * @param filename filename to write Messages to
+     * @throws FileNotFoundException if file wasn't found
+     */
+    public FileMessageWriter(String filename) throws FileNotFoundException {
+        printWriter = new PrintWriter(new File(filename));
     }
 
+    /**
+     * Writes given message to file
+     * @param msg a Message to write
+     */
     @Override
     public void writeMessage(Message msg) {
-        try {
-            PrintWriter printWriter = new PrintWriter(new File(filename));
-            printWriter.println(msg.getLines().size());
-            for (int i = 0; i < msg.getLines().size(); ++i)
-                printWriter.println(msg.getLines().get(i));
+        printWriter.println(msg.getLines().size());
+        for (int i = 0; i < msg.getLines().size(); ++i)
+            printWriter.println(msg.getLines().get(i));
+    }
+
+    /**
+     * Closes the writer
+     * @throws RuntimeException
+     */
+    @Override
+    public void close() throws RuntimeException {
+        if (printWriter != null)
             printWriter.close();
-        }  catch (FileNotFoundException e) {
-            System.err.println("File not found: " + filename);
-        }
     }
 
     private String filename;
+    private PrintWriter printWriter = null;
 }

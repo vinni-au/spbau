@@ -1,19 +1,38 @@
 package ru.spbau.storozhev.task1;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Anton
+ * Writes Messages to console
+ *
+ * @author Anton Storozhev
  */
 public class ConsoleMessageWriter implements MessageWriter {
+    /**
+     * Constructs a ConsoleMessageWriter
+     */
     public ConsoleMessageWriter() {
     }
 
+    /**
+     * Prints given message to console in the following format:
+     * "Message #number of message"
+     * "#messagenumber.#linenumber line of message"
+     * @param msg Message to print
+     */
     @Override
     public void writeMessage(Message msg) {
-        System.out.println("Message " + ++currentMessageNumber);
+        System.out.println("\"Message " + ++currentMessageNumber + "\"");
         for (int i = 0; i < msg.getLines().size(); ++i) {
-            System.out.println(currentMessageNumber + "." + (i+1) + ". " + msg.getLines().get(i));
+            System.out.println("\"" + currentMessageNumber + "." + (i+1) + ". \"" + msg.getLines().get(i));
         }
+    }
+
+    /**
+     * Closes the Writer (actually does nothing)
+     * @throws RuntimeException never
+     */
+    @Override
+    public void close() throws RuntimeException {
+        //there's nothing to do
     }
 
     private int currentMessageNumber = 0;
