@@ -26,7 +26,6 @@ long long Fbig_r(int n, vector<int> a) {
 int main()
 {
     cout << Fbig_r(78, {1,1,2,5,10,10,20,50}) << endl;
-    cout << Fbig_r(78, {1,2,5,10,20,50}) << endl;
     cout << Fbig_r(10, {1,2,3,5}) << endl;
     cout << Fbig_r(100, {2,5}) << endl;
     cout << Fbig_r(100, {3,5}) << endl;
