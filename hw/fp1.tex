@@ -1,0 +1,28 @@
+\problemset {Домашнее задание 1}
+
+\begin{enumerate}
+  \item
+    \begin{itemize}
+      \item
+        $(\lambda xyz.~zyx)yz(\lambda pq.~q) = (\lambda pq.~q)zy = y$
+        
+      \item
+        $(\lambda yz.~zy)((\lambda x.~xxx)(\lambda x.~xxx))(\lambda y.~xxx) = (\lambda y.~xxx)((\lambda x.~xxx)(\lambda x.~xxx)) = xxx$
+      
+      \item 
+       $SKSKSK = (\lambda xyz.~xz(yz))KSKSK = KK(SK)SK = (\lambda xy.~x)K(SK)SK = KSK = (\lambda xy.~x)SK = S$
+      
+    \end{itemize}    
+    
+  \item
+    \begin{itemize}
+      \item
+        Введём вспомогательный предикат, для проверки, что число является 0:\\
+        $iszero := \lambda x.~x (\lambda y.~false)~true$\\
+        $ge := \lambda xy.~if~iszero (y~pred~x)~false~true = \lambda xy.~iszero~(y~pred~x)~false~true$
+        
+      \item
+        $am := \lambda xy.~ if~(ge~x~y)~(y~pred~x)~(x~pred~y) = \lambda xy.~ ge~x~y~(y~pred~x)~(x~pred~y)$\\
+      
+    \end{itemize}
+\end{enumerate}

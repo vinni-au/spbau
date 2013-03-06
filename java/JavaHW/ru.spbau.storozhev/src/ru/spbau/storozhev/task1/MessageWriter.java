@@ -1,5 +1,7 @@
 package ru.spbau.storozhev.task1;
 
+import java.io.IOException;
+
 /**
  * MessageWriter implementers should be able to write Messages
  *
@@ -10,11 +12,12 @@ public interface MessageWriter {
      * Writes a given message
      * @param msg a Message to write
      */
-    public void writeMessage(Message msg);
+    void writeMessage(Message msg);
 
 
     /**
      * Closes the MessageWriter (if needed)
+     * @throws IOException when writer can't be closed
      */
-    public void close() throws RuntimeException;
+    void close() throws IOException;
 }

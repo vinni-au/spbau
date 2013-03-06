@@ -1,5 +1,7 @@
 package ru.spbau.storozhev.task1;
 
+import java.io.IOException;
+
 /**
  * Writes messages: consequent pairs of messages will be concatenated in one message.
  * Uses another MessageWriter to write messages
@@ -36,7 +38,7 @@ public class CompressingMessageWriter implements MessageWriter {
      * @throws RuntimeException when MessageWriter can't be close
      */
     @Override
-    public void close() throws RuntimeException {
+    public void close() throws IOException {
         if (messageWriter != null) {
             if (message != null) {
                 messageWriter.writeMessage(message);

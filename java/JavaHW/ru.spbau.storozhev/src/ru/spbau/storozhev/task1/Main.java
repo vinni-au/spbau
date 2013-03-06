@@ -27,13 +27,6 @@ public class Main {
             fileMessageReader = new FileMessageReader(filename);
         } catch (FileNotFoundException e) {
             System.err.println("File \"" + filename + "\" wasn't found");
-            if (fileMessageReader != null) {
-                try {
-                    fileMessageReader.close();
-                } catch (IOException exc) {
-                    System.err.println("Unexpected IOException occurred");
-                }
-            }
         }
 
         MessageWriter messageWriter = null;
@@ -56,15 +49,21 @@ public class Main {
                 message = fileMessageReader.readMessage();
             }
         } catch (IllegalMessageFormatException e) {
-            System.err.println("Message has inappropriate format");
+            System.err.println("Error: Message has inappropriate format");
         } catch (IOException e) {
-            System.err.println("IOException occurred");
+            System.err.println("IOException occurred: " + e.getMessage());
         }
 
         try {
             messageWriter.close();
-        } catch (RuntimeException e) {
+        } catch (IOException e) {
             System.err.println("Error: can't close MessageWriter");
+        }
+
+        try {
+            fileMessageReader.close();
+        } catch (IOException e) {
+            System.err.println("Error: can't close FileMessageReader");
         }
     }
 

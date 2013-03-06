@@ -1,0 +1,86 @@
+\problemset{ФП -- домашнее задание 2}
+
+\begin{enumerate}
+  %1
+  \item
+    \begin{enumerate}
+      %a !
+      \item
+        $ FM =_{\beta} F$\\
+        $ F = \lambda m. F $\\
+        $ F = Y(\lambda fm. f) $
+        
+      %b !
+      \item
+        $ FMN =_\beta NF(NMF) \Leftarrow F = (\lambda fmn.~nf(nmf))F $\\
+        $ F = Y(\lambda fmn.~nf(nmf)) $
+      
+      %c !     
+      \item
+        $ FIKS =_\beta FK  \Rightarrow F = (\lambda fiks.~fk)F $\\
+        $ F = Y(\lambda fiks.~fk) $
+      
+      %d
+      \item
+      
+      %e
+      \item
+    
+    \end{enumerate}
+  
+  %2 !
+  \item
+    \begin{enumerate}
+      %a
+      \item      
+        $ (\lambda xy.~y) \Omega =_\beta \lambda y.~\Omega$, теперь очевидно, что $ \lambda y.~\Omega \neq_\beta \Omega$, а значит $(\lambda xy.~x)\Omega \neq_\beta \Omega$
+
+      %b
+      \item
+        $$
+          \left\{
+            \begin{aligned}
+              F~M &=_\beta F~M~M\\
+              F~M &=_\beta M~M~F\\
+            \end{aligned}            
+          \right.
+        $$
+        Пусть $ M = K $, тогда
+        $$
+          \left\{
+            \begin{aligned}
+              F~K &=_\beta F~K~K\\
+              F~K &=_\beta K\\
+            \end{aligned}            
+          \right.
+        $$
+        А по теореме Чёрча-Россера это означает, что термы $K$ и $F~K~K$ должны сводиться к одной нормальной форме, т.к. $K$ уже находится в нормальной форме, значит $F~K~K$ редуцируется к $K$. Но при этом $F~K =_\beta K$, значит $K~K$ должен редуцироваться к $K$, но $K~K = \lambda y.~K$, получили противоречие.
+        
+        
+    \end{enumerate}
+  
+  %3 !
+  \item
+    $ F = R~(\lambda ns.~plus~s~n)~\overline{0} $
+  
+  %4
+  \item
+    \begin{enumerate}
+      %a !
+      \item
+          $ A = \lambda mn.~if~iszero~m~(succ~n)~(if~iszero~n~(A~m~\overline{1})~(A~m~(A~(succ~m)~n))) $\\
+          $ A = \lambda mn.~iszero~m~(succ~n)~(iszero~n~(A~m~\overline{1})~(A~m~(A~(succ~m)~n)))  $\\
+          $ A = (\lambda amn.~iszero~m~(succ~n)~(iszero~n~(a~m~\overline{1})~(a~m~(a~(succ~m)~n))))~A $\\
+          $ A = Y(\lambda amn.~iszero~m~(succ~n)~(iszero~n~(a~m~\overline{1})~(a~m~(a~(succ~m)~n)))) $
+              
+      
+      %b
+      \item
+    \end{enumerate}
+  
+  %5
+  \item
+  
+  %6
+  \item
+\end{enumerate}
