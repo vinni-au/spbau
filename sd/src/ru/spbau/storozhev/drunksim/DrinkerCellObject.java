@@ -24,7 +24,7 @@ public class DrinkerCellObject extends AbstractCellObject {
 			return null;
 		}
 		
-		int r = rand.nextInt() % 4;
+		int r = Math.abs(rand.nextInt() % 4);
 		int x = cell.getX();
 		int y = cell.getY();
 		
