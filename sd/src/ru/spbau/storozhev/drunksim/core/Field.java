@@ -15,14 +15,35 @@ public class Field {
 		}
 	}
 	
-	public void setCellObject(AbstractCellObject o, int x, int y) {
+	public void setCellObject(AbstractCellObject o) {
+		int x = o.getX();
+		int y = o.getY();
+		
+		if (x < 0 || x >= width || y < 0 || y >= height)
+			return;
+		
 		cells[x][y].setCellObject(o);
+	}
+	
+	public void setStuffObject(IStuffObject o, int x, int y) {
+		if (x < 0 || x >= width || y < 0 || y >= height)
+			return;
+		
+		cells[x][y].setStuffObject(o);
 	}
 	
 	public AbstractCellObject getCellObject(int x, int y) {
 		if (x < 0 || x >= width || y < 0 || y >= height)
 			return null;
+		
 		return cells[x][y].getObject();
+	}
+	
+	public IStuffObject getStuffObject(int x, int y) {
+		if (x < 0 || x >= width || y < 0 || y >= height)
+			return null;
+		
+		return cells[x][y].getStuff();
 	}
 	
 	public int getWidth() {
@@ -40,10 +61,25 @@ public class Field {
 	public void print() {
 		for (int i = 0; i < width; ++i) {
 			for (int j = 0; j < height; ++j) {
-				System.out.print(cells[i][j].getObject().toChar());
+				if (cells[i][j].getStuff() == null) {
+					System.out.print(cells[i][j].getObject().toChar());
+				} else {
+					System.out.print(cells[i][j].getStuff().toChar());
+				}
 			}
 			System.out.println();
 		}
+	}
+	
+	public void print(int step, String info) {
+		System.out.println("Step " + step);
+		if (info.length() > 0)
+			System.out.println(info);
+		print();
+	}
+	
+	public void print(int step) {
+		print(step, "");
 	}
 	
 	private int width;

@@ -19,7 +19,7 @@ public class DummyCellObject extends AbstractCellObject {
 	}
 
 	@Override
-	public AbstractStepDecision makeStep() {
+	public AbstractStepDecision makeStep(int no) {
 		return null;
 	}
 

@@ -30,8 +30,17 @@ public class Cell {
 		object = o;
 	}
 	
+	public void setStuffObject(IStuffObject o) {
+		stuff = o;
+	}
+	
+	public IStuffObject getStuff() {
+		return stuff;
+	}
+	
 	private int x;
 	private int y;
 	private AbstractCellObject object;
+	private IStuffObject stuff;
 	private Field field;
 }

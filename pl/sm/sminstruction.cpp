@@ -40,6 +40,17 @@ SMInstruction SMInstruction::parse(std::string str) {
                 if (ch == ' ')
                     ss >> ch;
                 switch (ch) {
+                case '*':
+                    result.op = Mult;
+                    break;
+                case '!':
+                    ss >> ch;
+                    result.op = NotEq;
+                    break;
+                case '=':
+                    ss >> ch;
+                    result.op = EqEq;
+                    break;
                 case '+':
                     result.op = Plus;
                     break;

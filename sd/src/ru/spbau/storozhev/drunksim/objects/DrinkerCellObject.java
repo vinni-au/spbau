@@ -24,8 +24,6 @@ public class DrinkerCellObject extends AbstractCellObject {
 	@Override
 	public char toChar() {
 		switch (state) {
-		case Walking:
-			return 'D';
 		case Sleeping:
 			return 'Z';
 		case Laying:
@@ -36,7 +34,12 @@ public class DrinkerCellObject extends AbstractCellObject {
 	}
 
 	@Override
-	public AbstractStepDecision makeStep() {
+	public AbstractStepDecision makeStep(int no) {
+		if (state == DrinkerState.Sleeping || 
+				state == DrinkerState.Laying)
+			return null;
+		
+		
 		int r = Math.abs(rand.nextInt() % 4);
 		int x = cell.getX();
 		int y = cell.getY();
@@ -52,10 +55,16 @@ public class DrinkerCellObject extends AbstractCellObject {
 		
 		AbstractCellObject target = cell.getField().getCellObject(x, y);
 		if (target != null) {
-			if (target.getClass().getName().endsWith(".PillarCellObject"))
+			if (target.getClass().equals(PillarCellObject.class))
 				return new DrinkerSleepStepDecision(x, y, cell);
-			else
-				return new MoveStepDecision(x, y, cell);
+			
+			if (target.getClass().equals(DrinkerCellObject.class)) {
+				DrinkerCellObject other = (DrinkerCellObject)target;
+				if (other.getState() == DrinkerState.Sleeping)
+					return new DrinkerSleepStepDecision(x, y, cell);
+			}
+			
+			return new MoveStepDecision(x, y, cell);
 		}
 		
 		return null;
@@ -65,6 +74,10 @@ public class DrinkerCellObject extends AbstractCellObject {
 		state = newState;		
 	}
 	
-	private static Random rand = new Random(System.currentTimeMillis());
-	private DrinkerState state;
+	public DrinkerState getState() {
+		return state;
+	}
+	
+	private static Random rand = new Random();
+	private DrinkerState state = DrinkerState.Walking;
 }

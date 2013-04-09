@@ -20,7 +20,7 @@ public class PillarCellObject extends AbstractCellObject {
 	}
 
 	@Override
-	public AbstractStepDecision makeStep() {
+	public AbstractStepDecision makeStep(int no) {
 		return null;
 	}
 

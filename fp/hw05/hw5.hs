@@ -57,12 +57,13 @@ shiftL (x:xs) = xs ++ [x]
 shiftR :: [a] -> [a]
 shiftR xs = shiftRh xs []
   where
-    shiftRh [] = []
-    shiftRh (x:xs) = x:(reverse xs)
+    shiftRh [] _ = []
 
 -- 6. swap i j меняет местами i и j элементы.
 swap :: Int -> Int -> [a] -> [a]
-swap = undefined
+swap i j xs = swaph (min (i,j)) (max (i,j)) xs
+  where
+    swaph = undefined
 
 -- 7. takeLast n xs возвращает последние n элементов списка xs.
 takeLast :: Int -> [a] -> [a]
@@ -78,7 +79,7 @@ takeLast n zs = takeh n (reverse zs) []
 -- которые разделяются плохими, отправляет в функцию f и возвращает список результатов.
 -- Заметьте, что в функцию f никогда не передаются пустые списки.
 mapl :: (a -> Bool) -> ([a] -> b) -> [a] -> [b]
-mapl = undefined
+mapl p f xs = undefined
 
 main = fmap (\_ -> ()) $ runTestTT $ test
     $    label "fun"

@@ -14,7 +14,7 @@ public class DrinkerSleepStepDecision extends AbstractStepDecision {
 	public void doIt() {
 		DrinkerCellObject drinker = (DrinkerCellObject)cell.getObject();		
 		drinker.setState(DrinkerState.Sleeping);
-		System.out.println("Going to sleep...");
+//		System.out.println("Going to sleep...");
 	}
 
 	@Override

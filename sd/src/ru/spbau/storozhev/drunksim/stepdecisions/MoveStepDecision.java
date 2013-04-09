@@ -17,23 +17,15 @@ public class MoveStepDecision extends AbstractStepDecision {
 				EmptyCellObject newObj = new EmptyCellObject(field.getCell(
 						cell.getX(), cell.getY()));
 				cell.getObject().setCell(field.getCell(targetX, targetY));
-				field.setCellObject(cell.getObject(), targetX, targetY);
-				field.setCellObject(newObj, newObj.getX(), newObj.getY());
+				field.setCellObject(cell.getObject());
+				field.setCellObject(newObj);
 			}
 		}
 	}
 
-	public int desirableX() {
-		return targetX;
-	}
-
-	public int desirableY() {
-		return targetY;
-	}
-
 	@Override
 	public boolean isConflictedWith(AbstractStepDecision other) {
-		if (other.getClass().getName().endsWith(".MoveStepDecision")) {
+		if (other.getClass().equals(MoveStepDecision.class)) {
 			MoveStepDecision o = (MoveStepDecision) other;
 			if (targetX == o.targetX && targetY == o.targetY)
 				return true;

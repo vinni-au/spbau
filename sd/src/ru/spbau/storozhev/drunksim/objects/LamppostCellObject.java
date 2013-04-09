@@ -20,7 +20,7 @@ public class LamppostCellObject extends AbstractCellObject {
 	}
 
 	@Override
-	public AbstractStepDecision makeStep() {
+	public AbstractStepDecision makeStep(int no) {
 		// TODO Auto-generated method stub
 		return null;
 	}

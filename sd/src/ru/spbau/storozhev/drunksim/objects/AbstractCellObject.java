@@ -10,7 +10,7 @@ public abstract class AbstractCellObject {
 	
 	public abstract boolean isWalkableThru();
 	public abstract char toChar();
-	public abstract AbstractStepDecision makeStep();
+	public abstract AbstractStepDecision makeStep(int no);
 	
 	public int getX() {
 		return cell.getX();

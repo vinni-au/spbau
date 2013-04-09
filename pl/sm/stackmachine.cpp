@@ -13,13 +13,14 @@ StackMachine* StackMachine::parse(std::istream &in, std::ostream &err) {
         std::getline(in, curstr);
         trim(curstr);
         if (curstr.size() > 0) {
-            if (curstr.at(0) == '$') { //oh, it's a label!!
+            while (curstr.at(0) == '$') { //oh, it's a label!!
                 curstr.erase(curstr.begin(), curstr.begin() + 1);
                 int i = 0;
                 while (std::isalnum(curstr.at(i)))
                     ++i;
                 std::string lbl = curstr.substr(0, i);
                 curstr.erase(curstr.begin(), curstr.begin() + i);
+                trim(curstr);
                 trim(curstr);
                 if (result->m_label_ind.find(lbl) == result->m_label_ind.end()) {
                     result->m_labels.push_back(result->m_program.size());
