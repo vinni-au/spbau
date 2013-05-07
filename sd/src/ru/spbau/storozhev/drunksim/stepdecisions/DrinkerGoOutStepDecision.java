@@ -12,7 +12,7 @@ public class DrinkerGoOutStepDecision extends AbstractStepDecision {
 	@Override
 	public void doIt() {
 		Cell target = cell.getField().getCell(targetX, targetY);
-		if (target.getStuff() == null 
+		if (target.getStuffObject() == null 
 				&& target.getObject().getClass().equals(EmptyCellObject.class)) {
 			cell.getField().setCellObject(new DrinkerCellObject(target));
 		}

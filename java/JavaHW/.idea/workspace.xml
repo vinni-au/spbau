@@ -7,13 +7,13 @@
     <list default="true" id="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" name="Default" comment="" />
     <ignored path="JavaHW.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Main.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1363107667395" ignored="false" />
+    <file path="/Main.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1367839647195" ignored="false" />
     <file path="/a.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1362212308549" ignored="false" />
     <file path="/Message.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1361222771206" ignored="false" />
     <file path="/FileMessageReader.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1361295399284" ignored="false" />
     <file path="/IllegalMessageFormatException.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1361287457905" ignored="false" />
     <file path="/MessageWriter.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1361783446456" ignored="false" />
-    <file path="/fragment.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1361896066818" ignored="false" />
+    <file path="/fragment.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1367842236266" ignored="false" />
     <file path="/CompressingMessageWriter.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1361879486741" ignored="false" />
     <file path="/ConsoleMessageWriter.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1361300654393" ignored="false" />
     <file path="/FileMessageWriter.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1361300595674" ignored="false" />
@@ -25,6 +25,15 @@
     <file path="/ActionListener.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1363110849056" ignored="false" />
     <file path="/TimeEvent.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1363123040589" ignored="false" />
     <file path="/RandomEvent.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1363112932496" ignored="false" />
+    <file path="/Philosopher.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1366122610072" ignored="false" />
+    <file path="/Table.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1366122623320" ignored="false" />
+    <file path="/Stick.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1366122616449" ignored="false" />
+    <file path="/LoginWindow.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1367774471036" ignored="false" />
+    <file path="/ViewerWindow.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1367774274234" ignored="false" />
+    <file path="/PicturePanel.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1367751472130" ignored="false" />
+    <file path="/Server.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1367839874443" ignored="false" />
+    <file path="/BookServer.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1367839356836" ignored="false" />
+    <file path="/BookClient.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1367842225703" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,46 +97,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task4/Main.java">
+      <file leaf-file-name="BookServer.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task10/BookServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="8" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0">
+            <state line="10" column="19" selection-start="131" selection-end="131" vertical-scroll-proportion="0.2617801">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Event.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task4/Event.java">
+      <file leaf-file-name="BookClient.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task10/BookClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TimeEvent.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task4/TimeEvent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="124" selection-end="124" vertical-scroll-proportion="0.15652174">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RandomEvent.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task4/RandomEvent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="17" selection-start="162" selection-end="162" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActionListener.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task4/ActionListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="40" selection-start="115" selection-end="115" vertical-scroll-proportion="0.0">
+            <state line="11" column="41" selection-start="173" selection-end="173" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -140,27 +122,37 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="GradleLocalSettings">
+    <option name="expandStates">
+      <map>
+        <entry key="JavaHW" value="true" />
+      </map>
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task1/FileMessageWriter.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task1/IllegalMessageFormatException.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task1/Message.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task1/MessageWriter.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task1/CompressingMessageWriter.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task2/TreeNode.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task2/FilesystemWalker.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task2/Main.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task1/Main.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task3/Main.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task3/Archiver.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task4/Main.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task4/ActionListener.java" />
         <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task4/Event.java" />
         <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task4/RandomEvent.java" />
         <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task4/TimeEvent.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task8/Philosopher.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task8/Stick.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task8/Table.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task8/Main.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task11/PicturePanel.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task11/Main.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task11/ViewerWindow.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task11/LoginWindow.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task10/Server.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task10/Client.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task10/Main.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task10/BookClient.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task10/BookServer.java" />
       </list>
     </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState />
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-3" />
@@ -194,7 +186,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -231,7 +222,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="task4" />
+              <option name="myItemId" value="task11" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaHW" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ru.spbau.storozhev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storozhev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="task10" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -255,7 +268,39 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaHW" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ru.spbau.storozhev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewLibrariesNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaHW" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ru.spbau.storozhev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ru.spbau.storozhev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -266,7 +311,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="options.lastSelected" value="preferences.toDoOptions" />
+    <property name="options.lastSelected" value="fileTemplates" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
@@ -283,29 +328,7 @@
       <recent name="ru.spbau.storozhev.task1" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="ru.spbau.storozhev.task2.Main" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="$USER_HOME$/tes" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task1" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="ru.spbau.storozhev" />
-      <envs />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Application.Main10">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
@@ -394,20 +417,59 @@
       <patterns />
       <method />
     </configuration>
-    <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+    <configuration default="false" name="Main11" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ru.spbau.storozhev.task11.Main" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/Downloads/jdk1.7.0_13" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ru.spbau.storozhev" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Main10" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ru.spbau.storozhev.task10.BookServer" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task10" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/Downloads/jdk1.7.0_13" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ru.spbau.storozhev" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Application.Main11" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Main10" />
     </list>
-    <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SliceManager">
+    <option name="analysisUIOptions">
+      <AnalysisUIOptions />
+    </option>
+  </component>
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false">
     <option name="USER" value="" />
     <option name="PASSWORD" value="" />
@@ -439,25 +501,25 @@
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39865997" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Kotlin" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21363637" sideWeight="0.3338898" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Kotlin" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24979919" sideWeight="0.49441788" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21363637" sideWeight="0.34223706" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21363637" sideWeight="0.67336684" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21515152" sideWeight="0.6705491" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32888147" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32663316" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -521,104 +583,95 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task1/Message.java">
+    <entry file="jar://$USER_HOME$/Downloads/jdk1.7.0_13/src.zip!/java/awt/Container.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="23" selection-start="725" selection-end="725" vertical-scroll-proportion="0.6954315" />
+        <state line="1573" column="16" selection-start="60768" selection-end="60778" vertical-scroll-proportion="0.70523417">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task2/TreeNode.java">
+    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/ru.spbau.storozhev.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="22" selection-start="509" selection-end="509" vertical-scroll-proportion="0.6567426" />
+        <state line="0" column="0" selection-start="0" selection-end="38" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task1/Main.java">
+    <entry file="jar://$USER_HOME$/Downloads/jdk1.7.0_13/src.zip!/java/awt/Graphics.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="881" column="28" selection-start="40455" selection-end="40455" vertical-scroll-proportion="-0.6876091" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task11/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="18" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/jdk1.7.0_13/jre/lib/deploy.jar!/com/sun/applet2/Applet2.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="17" selection-start="162" selection-end="162" vertical-scroll-proportion="0.13089006" />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/jdk1.7.0_13/src.zip!/javax/swing/JPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="31" selection-start="1508" selection-end="1508" vertical-scroll-proportion="0.21276596" />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/jdk1.7.0_13/src.zip!/javax/swing/JComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3157" column="16" selection-start="119640" selection-end="119640" vertical-scroll-proportion="1.4490358" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task11/ViewerWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="107" column="0" selection-start="2744" selection-end="2744" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task11/PicturePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="21" selection-start="306" selection-end="306" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/jdk1.7.0_13/src.zip!/javax/swing/JProgressBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="843" column="16" selection-start="27654" selection-end="27654" vertical-scroll-proportion="0.5718085">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/jdk1.7.0_13/src.zip!/java/awt/EventQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="250" column="23" selection-start="8638" selection-end="8638" vertical-scroll-proportion="0.33333334" />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/jdk1.7.0_13/src.zip!/javax/swing/SwingUtilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1289" column="23" selection-start="51657" selection-end="51657" vertical-scroll-proportion="0.75218153" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task11/LoginWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="84" selection-start="835" selection-end="835" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task1/MessageWriter.java">
+    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task10/BookClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="28" selection-start="318" selection-end="318" vertical-scroll-proportion="0.42031524" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task1/ConsoleMessageWriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="987" selection-end="987" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task1/CompressingMessageWriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="26" selection-start="1061" selection-end="1061" vertical-scroll-proportion="0.5043478" />
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Downloads/jdk1.7.0_13/src.zip!/java/util/regex/Pattern.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1020" column="29" selection-start="47715" selection-end="47715" vertical-scroll-proportion="-119.75652" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task2/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="54" selection-start="429" selection-end="429" vertical-scroll-proportion="0.4695652">
+        <state line="11" column="41" selection-start="173" selection-end="173" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task2/FilesystemWalker.java">
+    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task10/BookServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="38" selection-start="1031" selection-end="1031" vertical-scroll-proportion="0.026086956" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task3/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="34" selection-start="553" selection-end="553" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task3/Archiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="17" selection-start="271" selection-end="271" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task4/ActionListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="40" selection-start="115" selection-end="115" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task4/RandomEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="17" selection-start="162" selection-end="162" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task4/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="8" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task4/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task4/TimeEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="124" selection-end="124" vertical-scroll-proportion="0.15652174">
+        <state line="10" column="19" selection-start="131" selection-end="131" vertical-scroll-proportion="0.2617801">
           <folding />
         </state>
       </provider>

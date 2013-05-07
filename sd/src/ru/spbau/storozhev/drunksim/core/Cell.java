@@ -34,7 +34,7 @@ public class Cell {
 		stuff = o;
 	}
 	
-	public IStuffObject getStuff() {
+	public IStuffObject getStuffObject() {
 		return stuff;
 	}
 	
