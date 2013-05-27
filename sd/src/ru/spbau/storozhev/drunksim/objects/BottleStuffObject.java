@@ -7,4 +7,9 @@ public class BottleStuffObject implements IStuffObject {
 		return 'B';
 	}
 
+	@Override
+	public boolean isWalkableThru() {
+		return false;
+	}
+
 }

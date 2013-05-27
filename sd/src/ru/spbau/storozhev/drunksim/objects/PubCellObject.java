@@ -22,7 +22,7 @@ public class PubCellObject extends AbstractCellObject {
 	@Override
 	public AbstractStepDecision makeStep(int no) {
 		if (no % 20 == 0) {
-			return new DrinkerGoOutStepDecision(cell.getX() + 1, cell.getY(), cell);
+			return new GoOutStepDecision(cell.getX() + 1, cell.getY(), cell, new DrinkerCellObject(cell));
 		}
 		
 		return null;

@@ -3,13 +3,14 @@ package ru.spbau.storozhev.drunksim.app;
 import ru.spbau.storozhev.drunksim.core.DrunkSimApp;
 
 public class Main {
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		System.out.println("Starting DrunkSimApp...");
 		System.out.println("-h or --help for usage");
 		int w = 15;
 		int h = 15;
-		int steps = 200;
-		boolean fullTrace = true;//TODO:
+		int steps = 500;
+		boolean fullTrace = false;
 		boolean hexagonal = false;
 		
 		for (int i = 0; i < args.length; ++i) {

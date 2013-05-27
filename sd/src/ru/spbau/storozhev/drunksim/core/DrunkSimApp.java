@@ -3,10 +3,15 @@ package ru.spbau.storozhev.drunksim.core;
 import java.util.ArrayList;
 import java.util.List;
 
-import ru.spbau.storozhev.drunksim.objects.*;
-import ru.spbau.storozhev.drunksim.stepdecisions.*;
+import ru.spbau.storozhev.drunksim.objects.DummyCellObject;
+import ru.spbau.storozhev.drunksim.objects.LamppostCellObject;
+import ru.spbau.storozhev.drunksim.objects.PillarCellObject;
+import ru.spbau.storozhev.drunksim.objects.PoliceStationCellObject;
+import ru.spbau.storozhev.drunksim.objects.PubCellObject;
+import ru.spbau.storozhev.drunksim.stepdecisions.AbstractStepDecision;
 
 public class DrunkSimApp {
+	
 	public DrunkSimApp(int w, int h) {
 		field = new Field(w+1, h+1);
 		for (int i = 0; i < w+1; ++i)
@@ -15,8 +20,10 @@ public class DrunkSimApp {
 			field.setCellObject(new DummyCellObject(field.getCell(i, w)));
 		field.setCellObject(new PillarCellObject(field.getCell(w/2 + 1, h/2 + 1)));
 		field.setCellObject(new PubCellObject(field.getCell(0, 9)));
-		field.setCellObject(new LamppostCellObject(field.getCell(3, 10)));
-		field.setCellObject(new PoliceStationCellObject(field.getCell(3, h)));
+		LamppostCellObject lamppost = new LamppostCellObject(field.getCell(3, 10)); 
+		field.setCellObject(lamppost);
+		field.setCellObject(new PoliceStationCellObject(field.getCell(3, h), 
+				new LamppostCellObject[] {lamppost}));
 	}
 	
 	public void run() {

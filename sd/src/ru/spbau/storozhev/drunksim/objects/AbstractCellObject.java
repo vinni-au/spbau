@@ -24,9 +24,18 @@ public abstract class AbstractCellObject {
 		return cell;
 	}
 	
+	public IStuffObject getStuff() {
+		return stuff;
+	}
+	
 	public void setCell(Cell c) {
 		cell = c;
 	}
 	
+	public void setStuff(IStuffObject s) {
+		stuff = s;
+	}
+	
 	protected Cell cell;
+	protected IStuffObject stuff;
 }

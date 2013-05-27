@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import ru.spbau.storozhev.drunksim.objects.*;
+import ru.spbau.storozhev.drunksim.objects.AbstractCellObject;
+import ru.spbau.storozhev.drunksim.objects.EmptyCellObject;
+import ru.spbau.storozhev.drunksim.objects.IStuffObject;
 
 public class Field {
 	public Field(int w, int h) {
@@ -38,7 +40,7 @@ public class Field {
 		if (!checkBounds(x, y))
 			return;
 		
-		cells[x][y].setStuffObject(o);
+		cells[x][y].setStuff(o);
 	}
 	
 	public AbstractCellObject getCellObject(int x, int y) {
@@ -52,7 +54,7 @@ public class Field {
 		if (!checkBounds(x, y))
 			return null;
 		
-		return cells[x][y].getStuffObject();
+		return cells[x][y].getStuff();
 	}
 	
 	public int getWidth() {
@@ -64,6 +66,9 @@ public class Field {
 	}
 	
 	public Cell getCell(int x, int y) {
+		if (!checkBounds(x, y))
+			return null;
+		
 		return cells[x][y];
 	}
 	
@@ -72,7 +77,14 @@ public class Field {
 		if (hexagonal) {
 			
 		} else {
-			
+			if (checkBounds(x + 1, y))
+				result.add(getCell(x + 1, y));
+			if (checkBounds(x, y - 1))
+				result.add(getCell(x, y - 1));
+			if (checkBounds(x - 1, y))
+				result.add(getCell(x - 1, y));
+			if (checkBounds(x, y + 1))
+				result.add(getCell(x, y + 1));
 		}
 		return Collections.unmodifiableList(result);
 	}
@@ -80,10 +92,10 @@ public class Field {
 	public void print() {
 		for (int i = 0; i < width; ++i) {
 			for (int j = 0; j < height; ++j) {
-				if (cells[i][j].getStuffObject() == null) {
+				if (cells[i][j].getStuff() == null) {
 					System.out.print(cells[i][j].getObject().toChar());
 				} else {
-					System.out.print(cells[i][j].getStuffObject().toChar());
+					System.out.print(cells[i][j].getStuff().toChar());
 				}
 			}
 			System.out.println();

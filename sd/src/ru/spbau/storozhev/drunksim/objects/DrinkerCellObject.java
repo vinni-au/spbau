@@ -55,13 +55,25 @@ public class DrinkerCellObject extends AbstractCellObject {
 		
 		AbstractCellObject target = cell.getField().getCellObject(x, y);
 		if (target != null) {
-			if (target.getClass().equals(PillarCellObject.class))
+			if (target.getClass().equals(PillarCellObject.class)) {
 				return new DrinkerSleepStepDecision(x, y, cell);
+			}
 			
 			if (target.getClass().equals(DrinkerCellObject.class)) {
 				DrinkerCellObject other = (DrinkerCellObject)target;
 				if (other.getState() == DrinkerState.Sleeping)
 					return new DrinkerSleepStepDecision(x, y, cell);
+			}
+			
+			IStuffObject stuff = target.getCell().getStuff();
+			if (stuff != null && stuff.getClass().equals(BottleStuffObject.class)) {
+				return new DrinkerLaysStepDecision(x, y, cell);
+			}
+			
+			int dr = Math.abs(rand.nextInt() % 30);
+			if (dr == 15 && hasBottle) {
+				hasBottle = false;
+				return new DrinkerDropsBottleStepDecision(x, y, cell);
 			}
 			
 			return new MoveStepDecision(x, y, cell);
@@ -78,6 +90,7 @@ public class DrinkerCellObject extends AbstractCellObject {
 		return state;
 	}
 	
+	private boolean hasBottle = true;
 	private static Random rand = new Random();
 	private DrinkerState state = DrinkerState.Walking;
 }
