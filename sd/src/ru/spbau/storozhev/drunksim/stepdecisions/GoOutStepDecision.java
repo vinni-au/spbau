@@ -21,10 +21,5 @@ public class GoOutStepDecision extends AbstractStepDecision {
 		}		
 	}
 
-	@Override
-	public boolean isConflictedWith(AbstractStepDecision other) {
-		return true;
-	}
-
 	private AbstractCellObject object;
 }

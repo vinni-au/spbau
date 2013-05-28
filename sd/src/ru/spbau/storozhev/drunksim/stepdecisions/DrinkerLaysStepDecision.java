@@ -15,9 +15,4 @@ public class DrinkerLaysStepDecision extends AbstractStepDecision {
 		((DrinkerCellObject)cell.getObject()).setState(DrinkerState.Laying);
 	}
 
-	@Override
-	public boolean isConflictedWith(AbstractStepDecision other) {
-		return false;
-	}
-
 }

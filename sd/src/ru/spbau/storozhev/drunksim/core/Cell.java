@@ -1,5 +1,7 @@
 package ru.spbau.storozhev.drunksim.core;
 
+import java.util.List;
+
 import ru.spbau.storozhev.drunksim.objects.AbstractCellObject;
 import ru.spbau.storozhev.drunksim.objects.IStuffObject;
 
@@ -38,6 +40,10 @@ public class Cell {
 	
 	public IStuffObject getStuff() {
 		return stuff;
+	}
+	
+	public List<Cell> getNeighbours() {
+		return field.getNeighbours(this);
 	}
 	
 	public boolean isWalkableThru() {

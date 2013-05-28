@@ -10,7 +10,6 @@ public abstract class AbstractStepDecision {
 	}
 	
 	public abstract void doIt();
-	public abstract boolean isConflictedWith(AbstractStepDecision other);
 	
 	public int getTargetX() {
 		return targetX;

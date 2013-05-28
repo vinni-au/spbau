@@ -75,18 +75,33 @@ public class Field {
 	public List<Cell> getNeighbours(int x, int y) {
 		List<Cell> result = new ArrayList<>();
 		if (hexagonal) {
-			
-		} else {
-			if (checkBounds(x + 1, y))
-				result.add(getCell(x + 1, y));
-			if (checkBounds(x, y - 1))
-				result.add(getCell(x, y - 1));
-			if (checkBounds(x - 1, y))
-				result.add(getCell(x - 1, y));
-			if (checkBounds(x, y + 1))
-				result.add(getCell(x, y + 1));
+			if (x % 2 == 0) {
+				if (checkBounds(x + 1, y + 1))
+					result.add(getCell(x + 1, y + 1));
+				if (checkBounds(x + 1, y - 1))
+					result.add(getCell(x + 1, y - 1));
+			} else {
+				if (checkBounds(x - 1, y + 1))
+					result.add(getCell(x - 1, y + 1));
+				if (checkBounds(x - 1, y - 1))
+					result.add(getCell(x - 1, y - 1));
+			}			
 		}
+		
+		if (checkBounds(x + 1, y))
+			result.add(getCell(x + 1, y));
+		if (checkBounds(x, y - 1))
+			result.add(getCell(x, y - 1));
+		if (checkBounds(x - 1, y))
+			result.add(getCell(x - 1, y));
+		if (checkBounds(x, y + 1))
+			result.add(getCell(x, y + 1));
+
 		return Collections.unmodifiableList(result);
+	}
+	
+	public List<Cell> getNeighbours(Cell cell) {
+		return getNeighbours(cell.getX(), cell.getY());
 	}
 	
 	public void print() {

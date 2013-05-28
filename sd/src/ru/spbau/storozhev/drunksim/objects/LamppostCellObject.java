@@ -3,8 +3,8 @@ package ru.spbau.storozhev.drunksim.objects;
 import java.util.ArrayList;
 import java.util.List;
 
-import ru.spbau.storozhev.drunksim.core.*;
-import ru.spbau.storozhev.drunksim.stepdecisions.*;
+import ru.spbau.storozhev.drunksim.core.Cell;
+import ru.spbau.storozhev.drunksim.stepdecisions.AbstractStepDecision;
 
 public class LamppostCellObject extends AbstractCellObject {
 

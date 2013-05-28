@@ -18,9 +18,4 @@ public class PolicemanReturnsStepDecision extends AbstractStepDecision {
 		cell.getField().setCellObject(newObj);		
 	}
 
-	@Override
-	public boolean isConflictedWith(AbstractStepDecision other) {
-		return false;
-	}
-
 }

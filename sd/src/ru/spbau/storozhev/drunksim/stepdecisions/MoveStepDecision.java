@@ -1,7 +1,8 @@
 package ru.spbau.storozhev.drunksim.stepdecisions;
 
-import ru.spbau.storozhev.drunksim.core.*;
-import ru.spbau.storozhev.drunksim.objects.*;
+import ru.spbau.storozhev.drunksim.core.Cell;
+import ru.spbau.storozhev.drunksim.core.Field;
+import ru.spbau.storozhev.drunksim.objects.EmptyCellObject;
 
 public class MoveStepDecision extends AbstractStepDecision {
 	public MoveStepDecision(int x, int y, Cell c) {
@@ -21,17 +22,6 @@ public class MoveStepDecision extends AbstractStepDecision {
 				field.setCellObject(newObj);
 			}
 		}
-	}
-
-	@Override
-	public boolean isConflictedWith(AbstractStepDecision other) {
-		if (other.getClass().equals(MoveStepDecision.class)) {
-			MoveStepDecision o = (MoveStepDecision) other;
-			if (targetX == o.targetX && targetY == o.targetY)
-				return true;
-		}
-
-		return false;
 	}
 
 }

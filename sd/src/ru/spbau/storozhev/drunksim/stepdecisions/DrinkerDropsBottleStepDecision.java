@@ -15,9 +15,4 @@ public class DrinkerDropsBottleStepDecision extends AbstractStepDecision {
 		(new MoveStepDecision(targetX, targetY, cell)).doIt();
 	}
 
-	@Override
-	public boolean isConflictedWith(AbstractStepDecision other) {
-		return false;
-	}
-
 }

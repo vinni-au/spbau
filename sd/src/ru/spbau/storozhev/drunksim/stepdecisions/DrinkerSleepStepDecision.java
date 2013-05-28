@@ -16,8 +16,4 @@ public class DrinkerSleepStepDecision extends AbstractStepDecision {
 		drinker.setState(DrinkerState.Sleeping);
 	}
 
-	@Override
-	public boolean isConflictedWith(AbstractStepDecision other) {
-		return true;
-	}
 }

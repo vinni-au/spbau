@@ -25,9 +25,4 @@ public class PolicemanTakesDrinkerStepDecision extends AbstractStepDecision {
 		}
 	}
 
-	@Override
-	public boolean isConflictedWith(AbstractStepDecision other) {
-		return false;
-	}
-
 }

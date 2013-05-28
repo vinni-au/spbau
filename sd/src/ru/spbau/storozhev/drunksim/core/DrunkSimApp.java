@@ -3,7 +3,9 @@ package ru.spbau.storozhev.drunksim.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import ru.spbau.storozhev.drunksim.objects.BeggarCellObject;
 import ru.spbau.storozhev.drunksim.objects.DummyCellObject;
+import ru.spbau.storozhev.drunksim.objects.GlassCollectorCellObject;
 import ru.spbau.storozhev.drunksim.objects.LamppostCellObject;
 import ru.spbau.storozhev.drunksim.objects.PillarCellObject;
 import ru.spbau.storozhev.drunksim.objects.PoliceStationCellObject;
@@ -12,8 +14,8 @@ import ru.spbau.storozhev.drunksim.stepdecisions.AbstractStepDecision;
 
 public class DrunkSimApp {
 	
-	public DrunkSimApp(int w, int h) {
-		field = new Field(w+1, h+1);
+	public DrunkSimApp(int w, int h, boolean hexagonal) {
+		field = new Field(w+1, h+1, hexagonal);
 		for (int i = 0; i < w+1; ++i)
 			field.setCellObject(new DummyCellObject(field.getCell(0, i)));
 		for (int i = 0; i < h+1; ++i)
@@ -24,6 +26,9 @@ public class DrunkSimApp {
 		field.setCellObject(lamppost);
 		field.setCellObject(new PoliceStationCellObject(field.getCell(3, h), 
 				new LamppostCellObject[] {lamppost}));
+		GlassCollectorCellObject glassCollector = new GlassCollectorCellObject(field.getCell(0, 4)); 
+		field.setCellObject(new BeggarCellObject(field.getCell(1, 0), glassCollector));
+		field.setCellObject(glassCollector);
 	}
 	
 	public void run() {
