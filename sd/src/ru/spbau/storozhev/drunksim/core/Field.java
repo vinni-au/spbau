@@ -76,15 +76,15 @@ public class Field {
 		List<Cell> result = new ArrayList<>();
 		if (hexagonal) {
 			if (x % 2 == 0) {
-				if (checkBounds(x + 1, y + 1))
-					result.add(getCell(x + 1, y + 1));
+				if (checkBounds(x - 1, y - 1))
+					result.add(getCell(x - 1, y - 1));
 				if (checkBounds(x + 1, y - 1))
 					result.add(getCell(x + 1, y - 1));
 			} else {
 				if (checkBounds(x - 1, y + 1))
 					result.add(getCell(x - 1, y + 1));
-				if (checkBounds(x - 1, y - 1))
-					result.add(getCell(x - 1, y - 1));
+				if (checkBounds(x + 1, y + 1))
+					result.add(getCell(x + 1, y + 1));
 			}			
 		}
 		
@@ -106,14 +106,27 @@ public class Field {
 	
 	public void print() {
 		for (int i = 0; i < width; ++i) {
+			if (hexagonal) {
+				if (i%2 == 1) {
+					System.out.print(' ');
+				}
+			}
+
 			for (int j = 0; j < height; ++j) {
-				if (cells[i][j].getStuff() == null) {
-					System.out.print(cells[i][j].getObject().toChar());
-				} else {
-					System.out.print(cells[i][j].getStuff().toChar());
+				printCell(i, j);
+				if (hexagonal) {
+					System.out.print(' ');
 				}
 			}
 			System.out.println();
+		}
+	}
+	
+	private void printCell(int i, int j) {
+		if (cells[i][j].getStuff() == null) {
+			System.out.print(cells[i][j].getObject().toChar());
+		} else {
+			System.out.print(cells[i][j].getStuff().toChar());
 		}
 	}
 	

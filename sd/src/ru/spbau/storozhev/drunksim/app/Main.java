@@ -9,9 +9,9 @@ public class Main {
 		System.out.println("-h or --help for usage");
 		int w = 15;
 		int h = 15;
-		int steps = 500;
-		boolean fullTrace = false;
-		boolean hexagonal = false;
+		int steps = 200;
+		boolean fullTrace = true;
+		boolean hexagonal = true;
 		
 		for (int i = 0; i < args.length; ++i) {
 			if (args[i] == "-f" || args[i] == "--full-trace") {
