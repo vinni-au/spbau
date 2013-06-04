@@ -71,7 +71,7 @@ public class PathFinding {
 		return selectRandomCell(possibleTargets);
 	}
 	
-	public static Cell findCellWithObject(Cell current, Class<? extends AbstractCellObject> objClass) {
+	public static Cell findNeighbourCellWithObject(Cell current, Class<? extends AbstractCellObject> objClass) {
 		for (Cell c : current.getNeighbours()) {
 			AbstractCellObject obj = c.getObject();			
 			if (obj != null && obj.getClass().equals(objClass)) {
@@ -82,7 +82,7 @@ public class PathFinding {
 		return null;
 	}
 	
-	public static Cell findCellWithStuff(Cell current, Class<? extends IStuffObject> stuffClass) {
+	public static Cell findNeighbourCellWithStuff(Cell current, Class<? extends IStuffObject> stuffClass) {
 		for (Cell c : current.getNeighbours()) {
 			IStuffObject stuff = c.getStuff();
 			if (stuff != null && stuff.getClass().equals(stuffClass)) {

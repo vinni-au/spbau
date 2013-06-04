@@ -5,4 +5,5 @@ public interface Illuminant extends Iterable<LightBulb> {
 	void turnOff();
 	boolean isOn();
 	boolean isOk();
+	void visit(Visitor visitor);
 }

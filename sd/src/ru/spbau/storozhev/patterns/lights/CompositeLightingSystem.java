@@ -39,12 +39,23 @@ public class CompositeLightingSystem extends AbstractIlluminant {
 		return false;
 	}
 	
+	private List<Illuminant> illuminants = new ArrayList<>();
+
 	@Override
 	public Iterator<LightBulb> iterator() {
-		return new BulbIterator(illuminants);
+		return new CompositeBulbIterator(this);
 	}
 	
-	private List<Illuminant> illuminants = new ArrayList<>();
+	public Iterator<Illuminant> compositeIterator() {
+		return illuminants.iterator();
+	}
+
+	@Override
+	public void visit(Visitor visitor) {
+		visitor.visit(this);
+	}
+	
+	
 
 
 }

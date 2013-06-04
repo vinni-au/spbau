@@ -32,6 +32,32 @@ public class LightBulb extends AbstractIlluminant implements Iterable<LightBulb>
 
 	@Override
 	public Iterator<LightBulb> iterator() {
-		return new BulbIterator(this);
+		return new Iterator<LightBulb>() {
+			private LightBulb bulb = LightBulb.this;
+			
+			@Override
+			public boolean hasNext() {
+				return bulb != null && bulb.isOk();
+			}
+
+			@Override
+			public LightBulb next() {
+				LightBulb result = null;
+				if (bulb != null && bulb.isOk()) {
+					result = bulb;
+					bulb = null;
+				}
+				return result;
+			}
+
+			@Override
+			public void remove() {
+			}
+		};
+	}
+
+	@Override
+	public void visit(Visitor visitor) {
+		visitor.visit(this);
 	}
 }

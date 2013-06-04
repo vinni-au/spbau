@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-public class BulbCompositeIlluminant extends AbstractIlluminant implements Iterable<LightBulb>{
+public class BulbCompositeIlluminant extends AbstractIlluminant {
 	
 	public BulbCompositeIlluminant(Collection<LightBulb> bulbs) {
 		for (LightBulb bulb : bulbs) {
@@ -33,9 +33,14 @@ public class BulbCompositeIlluminant extends AbstractIlluminant implements Itera
 
 	@Override
 	public Iterator<LightBulb> iterator() {
-		return bulbs.iterator();
+		return bulbs.iterator();		
 	}
 	
 	protected List<LightBulb> bulbs = new ArrayList<>();
+
+	@Override
+	public void visit(Visitor visitor) {
+		visitor.visit(this);
+	}
 
 }

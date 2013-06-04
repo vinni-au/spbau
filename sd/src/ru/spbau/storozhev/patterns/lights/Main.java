@@ -6,12 +6,12 @@ import java.util.ArrayList;
 public class Main {
 
 	public static void main(String[] args) {
+		/*
 		List<Illuminant> samples = new ArrayList<>();
 		samples.add(new LightBulb());
 		samples.add(createCandelier());
 		samples.add(createGarland());
-		samples.add(createLightingSystem());
-		
+		samples.add(createLightingSystem());		
 		
 		for (Illuminant illuminant : samples) {
 			System.out.println("-------------------------------");
@@ -23,6 +23,44 @@ public class Main {
 				}
 				illuminant.turnOff();
 			}
+		}
+		*/
+		List<LightBulb> cb = new ArrayList<>();
+		cb.add(new LightBulb());
+		cb.add(new LightBulb());
+		cb.add(new LightBulb());
+		List<LightBulb> gb = new ArrayList<>();
+		gb.add(new LightBulb());
+		gb.add(new LightBulb());
+		Candelier c = new Candelier(cb);
+		Garland g = new Garland(gb);
+		List<Illuminant> lsl = new ArrayList<>();
+		lsl.add(c);
+		lsl.add(new LightBulb());
+		lsl.add(g);
+		CompositeLightingSystem ls = new CompositeLightingSystem(lsl);
+
+		System.out.println("--------- Checking lightbulb iterator ----------");
+		for (LightBulb bulb : new LightBulb()) {
+			System.out.println("Found lightbulb: " + bulb.toString());
+		}
+		System.out.println();
+		
+		System.out.println("--------- Checking candelier iterator ----------");
+		for (LightBulb bulb : c) {
+			System.out.println("Found lightbulb: " + bulb.toString());
+		}
+		System.out.println();
+		
+		System.out.println("--------- Checking garland iterator ----------");
+		for (LightBulb bulb : g) {
+			System.out.println("Found lightbulb: " + bulb.toString());
+		}
+		System.out.println();
+		
+		System.out.println("--------- Checking composite LS iterator -----------");
+		for (LightBulb bulb : ls) {
+			System.out.println("Found lightbulb: " + bulb.toString());
 		}
 	}
 	

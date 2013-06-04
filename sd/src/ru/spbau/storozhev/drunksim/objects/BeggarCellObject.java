@@ -32,7 +32,7 @@ public class BeggarCellObject extends AbstractCellObject {
 		glassCollector.setBeggar(null);
 		
 		if (bottle == null) {
-			Cell c = PathFinding.findCellWithStuff(cell, BottleStuffObject.class);
+			Cell c = PathFinding.findNeighbourCellWithStuff(cell, BottleStuffObject.class);
 			if (c != null) {
 				return new BeggarTakesBottleStepDecision(c.getX(), c.getY(), cell);
 			}
@@ -43,7 +43,7 @@ public class BeggarCellObject extends AbstractCellObject {
 			
 			return new MoveStepDecision(target.getX(), target.getY(), cell); 
 		} else {
-			Cell c = PathFinding.findCellWithObject(cell, GlassCollectorCellObject.class);
+			Cell c = PathFinding.findNeighbourCellWithObject(cell, GlassCollectorCellObject.class);
 			if (c != null) 
 				return new BeggarGoesToCollectorStepDecision(glassCollector.getX(), glassCollector.getY(), cell);
 			
