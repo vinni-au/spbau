@@ -1,39 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task1/Main.java" line="39" />
+    <bookmark url="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task1/Main.java" line="42" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" name="Default" comment="" />
     <ignored path="JavaHW.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Main.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1367839647195" ignored="false" />
+    <file path="/Main.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1372541009056" ignored="false" />
     <file path="/a.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1362212308549" ignored="false" />
     <file path="/Message.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1361222771206" ignored="false" />
     <file path="/FileMessageReader.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1361295399284" ignored="false" />
     <file path="/IllegalMessageFormatException.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1361287457905" ignored="false" />
     <file path="/MessageWriter.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1361783446456" ignored="false" />
-    <file path="/fragment.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1367842236266" ignored="false" />
-    <file path="/CompressingMessageWriter.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1361879486741" ignored="false" />
-    <file path="/ConsoleMessageWriter.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1361300654393" ignored="false" />
-    <file path="/FileMessageWriter.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1361300595674" ignored="false" />
+    <file path="/fragment.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1372504674891" ignored="false" />
+    <file path="/CompressingMessageWriter.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1369954870802" ignored="false" />
+    <file path="/ConsoleMessageWriter.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1369954820244" ignored="false" />
+    <file path="/FileMessageWriter.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1369954801239" ignored="false" />
     <file path="/input.txt" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1361299487720" ignored="false" />
-    <file path="/FilesystemWalker.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1361897710818" ignored="false" />
-    <file path="/TreeNode.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1361895765229" ignored="false" />
-    <file path="/Archiver.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1362560716174" ignored="false" />
-    <file path="/Event.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1363110968201" ignored="false" />
-    <file path="/ActionListener.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1363110849056" ignored="false" />
-    <file path="/TimeEvent.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1363123040589" ignored="false" />
-    <file path="/RandomEvent.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1363112932496" ignored="false" />
+    <file path="/FilesystemWalker.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1370483253394" ignored="false" />
+    <file path="/TreeNode.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1370482158384" ignored="false" />
+    <file path="/Archiver.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1372256632223" ignored="false" />
+    <file path="/Event.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1371176955765" ignored="false" />
+    <file path="/ActionListener.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1371177264841" ignored="false" />
+    <file path="/TimeEvent.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1371177106360" ignored="false" />
+    <file path="/RandomEvent.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1371177051618" ignored="false" />
     <file path="/Philosopher.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1366122610072" ignored="false" />
     <file path="/Table.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1366122623320" ignored="false" />
     <file path="/Stick.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1366122616449" ignored="false" />
     <file path="/LoginWindow.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1367774471036" ignored="false" />
-    <file path="/ViewerWindow.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1367774274234" ignored="false" />
+    <file path="/ViewerWindow.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1368519078814" ignored="false" />
     <file path="/PicturePanel.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1367751472130" ignored="false" />
     <file path="/Server.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1367839874443" ignored="false" />
-    <file path="/BookServer.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1367839356836" ignored="false" />
+    <file path="/BookServer.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1368775894127" ignored="false" />
     <file path="/BookClient.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1367842225703" ignored="false" />
+    <file path="/a.dummy" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1372346684062" ignored="false" />
+    <file path="/BinarySearchTree.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1372554205438" ignored="false" />
+    <file path="/UnbalancedBinarySearchTree.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1372554228714" ignored="false" />
+    <file path="/AVLBinarySearchTree.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1372554687213" ignored="false" />
+    <file path="/Student.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1372505809746" ignored="false" />
+    <file path="/ReflectionSerializer.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1372506213410" ignored="false" />
+    <file path="/ReflectionDeSerializer.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1372506128543" ignored="false" />
+    <file path="/SerializationException.java" changelist="6053fda6-b55e-4ce3-8aa4-5b77c7f2eb6f" time="1372505857810" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +61,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -87,7 +96,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -97,20 +106,57 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BookServer.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task10/BookServer.java">
+      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task6/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="19" selection-start="131" selection-end="131" vertical-scroll-proportion="0.2617801">
+            <state line="17" column="39" selection-start="461" selection-end="461" vertical-scroll-proportion="0.07678883">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BookClient.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task10/BookClient.java">
+      <file leaf-file-name="BinarySearchTree.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task6/BinarySearchTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="41" selection-start="173" selection-end="173" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="263" column="42" selection-start="6770" selection-end="6770" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#isEmpty#0;class#BinarySearchTree#0" expanded="false" />
+                <element signature="method#add#0;class#BinarySearchTree#0" expanded="false" />
+                <element signature="method#floor#0;class#BinarySearchTree#0" expanded="false" />
+                <element signature="method#higher#0;class#BinarySearchTree#0" expanded="false" />
+                <element signature="method#ceiling#0;class#BinarySearchTree#0" expanded="false" />
+                <element signature="method#first#0;class#BinarySearchTree#0" expanded="false" />
+                <element signature="method#last#0;class#BinarySearchTree#0" expanded="false" />
+                <element signature="method#treeIterator#0;class#BinarySearchTree#0" expanded="false" />
+                <element signature="method#size#0;class#BinarySearchTree#0" expanded="false" />
+                <element signature="method#comparator#0;class#BinarySearchTree#0" expanded="false" />
+                <element signature="e#10288#10441#0" expanded="true" />
+                <element signature="e#10430#10431#0" expanded="true" />
+                <element signature="method#getCloseNode#0;class#BinarySearchTree#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AVLBinarySearchTree.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task6/AVLBinarySearchTree.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="0" selection-start="35" selection-end="35" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UnbalancedBinarySearchTree.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task6/UnbalancedBinarySearchTree.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="43" column="34" selection-start="913" selection-end="913" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -132,22 +178,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task4/Event.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task4/RandomEvent.java" />
         <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task4/TimeEvent.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task8/Philosopher.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task8/Stick.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task8/Table.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task8/Main.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task11/PicturePanel.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task11/Main.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task11/ViewerWindow.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task11/LoginWindow.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task10/Server.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task10/Client.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task10/Main.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task10/BookClient.java" />
-        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task10/BookServer.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task4/Event.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task4/ActionListener.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task4/Main.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task3/Main.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task3/Archiver.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task7/Student.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task7/SerializationException.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task7/ReflectionSerializer.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task7/Main.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task7/ReflectionDeSerializer.java" />
+        <option value="$PROJECT_DIR$/student.properties" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task6/Main.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task6/UnbalancedBinarySearchTree.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task6/BinarySearchTree.java" />
+        <option value="$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task6/AVLBinarySearchTree.java" />
       </list>
     </option>
   </component>
@@ -186,88 +232,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JavaHW" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JavaHW" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ru.spbau.storozhev" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JavaHW" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ru.spbau.storozhev" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storozhev" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="task11" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JavaHW" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ru.spbau.storozhev" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storozhev" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="task10" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JavaHW" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ru.spbau.storozhev" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="storozhev" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -300,35 +265,108 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaHW" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaHW" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ru.spbau.storozhev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaHW" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ru.spbau.storozhev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaHW" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ru.spbau.storozhev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storozhev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaHW" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ru.spbau.storozhev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storozhev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="task6" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="fileTemplates" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/di-coffeemachine-example/pom.xml" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ru.spbau.storozhev.task1" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main10">
+  <component name="RunManager" selected="Application.task6">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
@@ -341,19 +379,6 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -381,6 +406,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -455,9 +493,181 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <list size="2">
+    <configuration default="false" name="cw2" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ru.spbau.storozhev.cw2.Main" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="input.txt" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ru.spbau.storozhev" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Task 3 compress" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ru.spbau.storozhev.task3.Main" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="compress output.jr compressme" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ru.spbau.storozhev" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Task 3 decompress" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ru.spbau.storozhev.task3.Main" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="decompress output.jr outputjr" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ru.spbau.storozhev" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="task1" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ru.spbau.storozhev.task1.Main" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="input.txt" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task1" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/Downloads/jdk1.7.0_13" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ru.spbau.storozhev" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="task2" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ru.spbau.storozhev.task2.Main" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="../../sdf" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task2" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/Downloads/jdk1.7.0_13" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ru.spbau.storozhev" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="task4" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ru.spbau.storozhev.task4.Main" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task4" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/Downloads/jdk1.7.0_13" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ru.spbau.storozhev" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="task6" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ru.spbau.storozhev.task6.Main" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task4" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/Downloads/jdk1.7.0_13" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ru.spbau.storozhev" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="task7" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ru.spbau.storozhev.task7.Main" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="student.properties" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/Downloads/jdk1.7.0_13" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ru.spbau.storozhev" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <list size="10">
       <item index="0" class="java.lang.String" itemvalue="Application.Main11" />
       <item index="1" class="java.lang.String" itemvalue="Application.Main10" />
+      <item index="2" class="java.lang.String" itemvalue="Application.cw2" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Task 3 compress" />
+      <item index="4" class="java.lang.String" itemvalue="Application.Task 3 decompress" />
+      <item index="5" class="java.lang.String" itemvalue="Application.task1" />
+      <item index="6" class="java.lang.String" itemvalue="Application.task2" />
+      <item index="7" class="java.lang.String" itemvalue="Application.task4" />
+      <item index="8" class="java.lang.String" itemvalue="Application.task6" />
+      <item index="9" class="java.lang.String" itemvalue="Application.task7" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -503,23 +713,23 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39865997" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.67111856" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.52921534" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32888147" sideWeight="0.5037879" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21363637" sideWeight="0.3338898" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Kotlin" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32220367" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21363637" sideWeight="0.34223706" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21515152" sideWeight="0.6705491" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32888147" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21515152" sideWeight="0.67111856" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32888147" sideWeight="0.4909091" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32663316" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -583,95 +793,117 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/Downloads/jdk1.7.0_13/src.zip!/java/awt/Container.java">
+    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task3/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1573" column="16" selection-start="60768" selection-end="60778" vertical-scroll-proportion="0.70523417">
+        <state line="16" column="35" selection-start="301" selection-end="301" vertical-scroll-proportion="0.36649215" />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/jdk1.7.0_13/src.zip!/java/util/SortedSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="211" column="17" selection-start="9884" selection-end="9884" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/ru.spbau.storozhev.iml">
+    <entry file="jar://$USER_HOME$/Downloads/jdk1.7.0_13/src.zip!/java/lang/Class.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="38" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Downloads/jdk1.7.0_13/src.zip!/java/awt/Graphics.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="881" column="28" selection-start="40455" selection-end="40455" vertical-scroll-proportion="-0.6876091" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task11/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="18" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0">
+        <state line="1118" column="18" selection-start="45993" selection-end="45993" vertical-scroll-proportion="0.11968085">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/Downloads/jdk1.7.0_13/jre/lib/deploy.jar!/com/sun/applet2/Applet2.class">
+    <entry file="jar://$USER_HOME$/Downloads/jdk1.7.0_13/src.zip!/java/lang/reflect/Method.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="17" selection-start="162" selection-end="162" vertical-scroll-proportion="0.13089006" />
+        <state line="585" column="18" selection-start="24026" selection-end="24032" vertical-scroll-proportion="0.3324468" />
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/Downloads/jdk1.7.0_13/src.zip!/javax/swing/JPanel.java">
+    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task7/Student.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="31" selection-start="1508" selection-end="1508" vertical-scroll-proportion="0.21276596" />
+        <state line="3" column="0" selection-start="39" selection-end="39" vertical-scroll-proportion="0.11968085" />
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/Downloads/jdk1.7.0_13/src.zip!/javax/swing/JComponent.java">
+    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task7/SerializationException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3157" column="16" selection-start="119640" selection-end="119640" vertical-scroll-proportion="1.4490358" />
+        <state line="2" column="0" selection-start="35" selection-end="35" vertical-scroll-proportion="0.039893616" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task11/ViewerWindow.java">
+    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task7/ReflectionDeSerializer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="0" selection-start="2744" selection-end="2744" vertical-scroll-proportion="0.0">
+        <state line="86" column="51" selection-start="3439" selection-end="3439" vertical-scroll-proportion="0.9464286" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task7/ReflectionSerializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="5" selection-start="99" selection-end="99" vertical-scroll-proportion="0.10471204" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task7/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="56" selection-end="56" vertical-scroll-proportion="0.07853403" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/jdk1.7.0_13/src.zip!/java/util/Stack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="26" selection-start="2013" selection-end="2013" vertical-scroll-proportion="0.3324468">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task11/PicturePanel.java">
+    <entry file="jar://$USER_HOME$/Downloads/jdk1.7.0_13/src.zip!/java/util/NavigableSet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="21" selection-start="306" selection-end="306" vertical-scroll-proportion="0.0">
+        <state line="64" column="0" selection-start="2004" selection-end="2004" vertical-scroll-proportion="0.84042555">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/Downloads/jdk1.7.0_13/src.zip!/javax/swing/JProgressBar.java">
+    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task6/UnbalancedBinarySearchTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="843" column="16" selection-start="27654" selection-end="27654" vertical-scroll-proportion="0.5718085">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Downloads/jdk1.7.0_13/src.zip!/java/awt/EventQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="250" column="23" selection-start="8638" selection-end="8638" vertical-scroll-proportion="0.33333334" />
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Downloads/jdk1.7.0_13/src.zip!/javax/swing/SwingUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1289" column="23" selection-start="51657" selection-end="51657" vertical-scroll-proportion="0.75218153" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task11/LoginWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="84" selection-start="835" selection-end="835" vertical-scroll-proportion="0.0">
+        <state line="43" column="34" selection-start="913" selection-end="913" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task10/BookClient.java">
+    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task6/BinarySearchTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="41" selection-start="173" selection-end="173" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="263" column="42" selection-start="6770" selection-end="6770" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#isEmpty#0;class#BinarySearchTree#0" expanded="false" />
+            <element signature="method#add#0;class#BinarySearchTree#0" expanded="false" />
+            <element signature="method#floor#0;class#BinarySearchTree#0" expanded="false" />
+            <element signature="method#higher#0;class#BinarySearchTree#0" expanded="false" />
+            <element signature="method#ceiling#0;class#BinarySearchTree#0" expanded="false" />
+            <element signature="method#first#0;class#BinarySearchTree#0" expanded="false" />
+            <element signature="method#last#0;class#BinarySearchTree#0" expanded="false" />
+            <element signature="method#treeIterator#0;class#BinarySearchTree#0" expanded="false" />
+            <element signature="method#size#0;class#BinarySearchTree#0" expanded="false" />
+            <element signature="method#comparator#0;class#BinarySearchTree#0" expanded="false" />
+            <element signature="e#10288#10441#0" expanded="true" />
+            <element signature="e#10430#10431#0" expanded="true" />
+            <element signature="method#getCloseNode#0;class#BinarySearchTree#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task10/BookServer.java">
+    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task6/AVLBinarySearchTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="19" selection-start="131" selection-end="131" vertical-scroll-proportion="0.2617801">
+        <state line="2" column="0" selection-start="35" selection-end="35" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ru.spbau.storozhev/src/ru/spbau/storozhev/task6/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="39" selection-start="461" selection-end="461" vertical-scroll-proportion="0.07678883">
           <folding />
         </state>
       </provider>
@@ -682,6 +914,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>unnamed</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

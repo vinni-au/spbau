@@ -35,7 +35,7 @@ public class CompressingMessageWriter implements MessageWriter {
 
     /**
      * Closes writer
-     * @throws RuntimeException when MessageWriter can't be close
+     * @throws IOException when MessageWriter can't be close
      */
     @Override
     public void close() throws IOException {

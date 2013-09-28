@@ -28,10 +28,9 @@ public class ConsoleMessageWriter implements MessageWriter {
 
     /**
      * Closes the Writer (actually does nothing)
-     * @throws RuntimeException never
      */
     @Override
-    public void close() throws RuntimeException {
+    public void close() {
         //there's nothing to do
     }
 

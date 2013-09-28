@@ -29,10 +29,9 @@ public class FileMessageWriter implements MessageWriter {
 
     /**
      * Closes the writer
-     * @throws RuntimeException
      */
     @Override
-    public void close() throws RuntimeException {
+    public void close() {
         if (printWriter != null)
             printWriter.close();
     }

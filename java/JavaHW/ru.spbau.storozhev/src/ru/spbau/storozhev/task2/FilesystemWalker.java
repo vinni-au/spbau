@@ -14,13 +14,11 @@ import java.util.regex.Pattern;
 public class FilesystemWalker {
     /**
      * Constructs a FilesystemWalker with given path
-     * @param path_ path to directory (or file)
+     * @param path path to directory (or file)
      * @throws FileNotFoundException if dir or file wasn't found
      */
-    public FilesystemWalker(String path_) throws FileNotFoundException {
-        path = path_;
-        if (!(new File(path_)).exists())
-            throw new FileNotFoundException();
+    public FilesystemWalker(String path) {
+        this.path = path;
         pattern = Pattern.compile("\\..*");
     }
 
@@ -80,17 +78,18 @@ public class FilesystemWalker {
         try {
             rootDir = new File(path);
             rootNode = new TreeNode(rootDir.getName());
+            if (!rootDir.exists()) {
+                rootNode.setNodeText(rootNode.getNodeText() + " not found!");
+                return;
+            }
             if (rootDir.isDirectory()) {
                 createTreeHelper(rootNode, rootDir);
-                checkDirPermissions(rootNode, rootDir);
-            } else {
-                checkFilePermissions(rootNode, rootDir);
             }
+            checkPermissions(rootNode, rootDir);
         }  catch (AccessControlException e) {
             rootNode.setNodeText(rootNode.getNodeText() + " (access denied)");
         }
     }
-
 
     /**
      * Helper method to create subtree
@@ -106,35 +105,23 @@ public class FilesystemWalker {
                     try {
                         if (file.isDirectory()) {
                             createTreeHelper(child, file);
-                            checkDirPermissions(child, file);
-                        } else {
-                            checkFilePermissions(child, file);
                         }
+                        checkPermissions(child, file);
                     } catch (AccessControlException e) {
                         child.setNodeText(child.getNodeText() + " (access denied)");
                     }
                 }
             }
+            node.sortChildNodes();
         }
     }
 
     /**
-     * Check dir permissions and adds " (access denied)" to node text if subdirs of a dir can't be gotten
+     * Check permissions and adds " (access denied)" to node text if file or dir can't be read
      * @param node node
-     * @param dir dir to check
+     * @param file file or dir to check
      */
-    private void checkDirPermissions(TreeNode node, File dir) {
-        if (!dir.canExecute()) {
-            node.setNodeText(node.getNodeText() + " (access denied)");
-        }
-    }
-
-    /**
-     * Check file permissions and adds " (access denied)" to node text if file can't be read
-     * @param node node
-     * @param file file to check
-     */
-    private void checkFilePermissions(TreeNode node, File file) {
+    private void checkPermissions(TreeNode node, File file) {
         if (!file.canRead()) {
             node.setNodeText(node.getNodeText() + " (access denied)");
         }

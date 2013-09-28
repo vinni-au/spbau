@@ -142,19 +142,25 @@ testsTree =
 --
 
 tupleFunctor :: Functor f => f (a1, a2) -> (f a1, f a2)
-tupleFunctor f = undefined 
+tupleFunctor p  = (fmap fst p, fmap snd p)
 
 eitherFunctor :: Functor f => Either (f a1) (f a2) -> f (Either a1 a2)
-eitherFunctor = undefined
+eitherFunctor (Left x) = fmap (\y -> Left y) x
+eitherFunctor (Right x) = fmap (\y -> Right y) x
 
 -- ifsum cs xs ys ps qs действует поэлементно. Если i-ый элемент списка cs есть True,
 -- то i-ый элемент результата будет Left от суммы i-ых элементов xs ys, иначе Right от суммы i-ых элементов ps и qs.
 -- Для реализации используйте instance Applicative для ZipList.
 ifsum :: (Num a, Num b) => [Bool] -> [a] -> [a] -> [b] -> [b] -> [Either a b]
-ifsum cs xs ys ps qs = undefined
+ifsum cs xs ys ps qs = 
+  getZipList $ getziplisth <$>
+  ZipList cs <*> ZipList xs <*> ZipList ys <*> ZipList ps <*> ZipList qs
+    where 
+      getziplisth c x y p q | c = Left (x+y)
+                            | otherwise = Right (p+q)
 
 tupleApplicative :: Applicative f => (f a1, f a2) -> f (a1, a2)
-tupleApplicative = undefined
+tupleApplicative (x, y) = (fmap (,) x) <*> y
 
 -- tests
 
@@ -172,23 +178,41 @@ testsIfsum =
 newtype Map k v = Map { lookupMap :: k -> Maybe v }
 
 insert :: Eq k => k -> v -> Map k v -> (Map k v, Maybe v)
-insert = undefined
+insert k v m = (Map lookuph, lookupMap m k)
+  where
+    lookuph x | x == k = Just v
+              | otherwise = (lookupMap m x)
 
 delete :: Eq k => k -> Map k v -> Maybe (Map k v)
-delete = undefined
+delete k m | isnothing (lookupMap m k) = Nothing
+           | otherwise = Just (Map lookuph)
+  where
+    lookuph x | x == k = Nothing
+              | otherwise = lookupMap m x
+    isnothing Nothing = True
+    isnothing _ = False
 
 fromList :: Eq k => [(k, v)] -> Map k v
-fromList = undefined
+fromList l = fromlisth l (Map stub)
+  where
+    stub _ = Nothing
+    fromlisth (x:xs) m = fromlisth xs (fst (insert (fst x) (snd x) m))
+    fromlisth [] m = m
 
 toList :: Map k v -> [k] -> [v]
-toList = undefined
+toList m ks = tolisth [] ks
+  where
+    tolisth vs (k:ks) = tolisth (vs ++ mbtolist (lookupMap m k)) ks
+    tolisth vs [] = vs
+    mbtolist Nothing = []
+    mbtolist (Just v) = [v]
 
 instance Functor (Map k) where
-    fmap = undefined
+    fmap f (Map g) = Map (fmap f . g)
 
 instance Applicative (Map k) where
-    pure = undefined
-    (<*>) = undefined
+    pure x = Map (\y -> Just x)
+    (<*>) (Map f) (Map g) = Map (\x -> (f x) <*> (g x))
 
 -- tests
 

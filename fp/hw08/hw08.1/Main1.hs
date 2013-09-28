@@ -9,23 +9,26 @@ module Main
 
 import Combinators
 import Test.HUnit
+import Data.Char
 
 boolP :: Parser Char Bool
-boolP = undefined
+boolP = (fmap (\_ -> True) $ string "True") <|> 
+        (fmap (\_ -> False) $ string "False")
 
 maybeP :: Parser Char a -> Parser Char (Maybe a)
-maybeP = undefined
+maybeP p = (fmap (\_ -> Nothing) $ string "Nothing") <|> 
+           (fmap (\x y -> Just y) (string "Just ") <*> p)
 
 listP :: Parser Char a -> Parser Char [a]
-listP = undefined
+listP p = brackets $ sepBy1 p $ lexeme ','
 
 listP' :: Parser Char a -> Parser Char [a]
-listP' = undefined
+listP' p = brackets $ sepBy1 p $ between spaces spaces $ lexeme ','
 
 data Tree a b = Branch (Tree a b) a (Tree a b) | Leaf b deriving (Show, Eq)
 
 treeP :: Parser Char a -> Parser Char b -> Parser Char (Tree a b)
-treeP = undefined
+treeP a b = angles (fmap (\l v r -> Branch l v r) (treeP a b) <*> braces a <*> (treeP a b)) <|> fmap Leaf b
 
 main = fmap (const ()) $ runTestTT $ test
     $    label "pure"
@@ -159,6 +162,12 @@ main = fmap (const ()) $ runTestTT $ test
     , runParser (treeP integer integer) "<1{2}3>" ~?= Just (Branch (Leaf 1) 2 (Leaf 3))
     , runParser (treeP integer integer) "<1{2}<3{4}5>>>" ~?= Just (Branch (Leaf 1) 2 (Branch (Leaf 3) 4 (Leaf 5)))
     , runParser (treeP integer integer) "<1{2}<3{4}5>" ~?= Nothing
+    ] ++ label "foldl1P"
+    [ runParser (foldl1P (\a b c -> a ++ "[" ++ show b ++ "]" ++ c) (many $ satisfy $ not . isDigit) digit) "a1bcd5efg853h" ~?= Just "a[1]bcd[5]efg[8][5][3]h"
+    , runParser (foldl1P (\a b c -> "(" ++ a ++ [b] ++ c ++ ")") (fmap show natural) anyLexeme) "12+34+45+56" ~?= Just "(((12+34)+45)+56)"
+    ] ++ label "foldr1P"
+    [ runParser (foldr1P (\a b c -> a ++ "[" ++ show b ++ "]" ++ c) (many $ satisfy $ not . isDigit) digit) "a1bcd5efg853h" ~?= Just "a[1]bcd[5]efg[8][5][3]h"
+    , runParser (foldr1P (\a b c -> "(" ++ a ++ [b] ++ c ++ ")") (fmap show natural) anyLexeme) "12+34+45+56" ~?= Just "(12+(34+(45+56)))"
     ]
   where
     label :: String -> [Test] -> [Test]

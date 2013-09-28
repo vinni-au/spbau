@@ -27,9 +27,12 @@ instance Functor (Parser l) where
 
 instance Applicative (Parser l) where
     pure x = Parser (\l -> Just (x, l)) 
-    (<*>) (Parser f) (Parser a) = Parser $ \xs -> case f xs of
+    (<*>) (Parser f) (Parser a) = Parser $ \xs -> 
+      case f xs of
         Nothing -> Nothing
-        Just (g, xs') -> fmap g xs'
+        Just (g, ys) -> case a ys of
+          Nothing -> Nothing
+          Just (y, z) -> Just (g y, z)
 
 instance Alternative (Parser l) where
     empty = Parser (\l -> Nothing) 
@@ -38,12 +41,17 @@ instance Alternative (Parser l) where
         r -> r
 
 runParser :: Parser l a -> [l] -> Maybe a
-runParser p xs = undefined
+runParser (Parser f) xs = 
+  case f xs of
+    Nothing -> Nothing
+    Just (x, _) -> Just x
 
 satisfy :: (l -> Bool) -> Parser l l
-satisfy f = Parser $ \xs -> if f (head xs) 
-                              then Just (head xs, tail xs) 
-                              else Nothing
+satisfy f = Parser $ \xs -> 
+  if g xs then Just (head xs, tail xs) else Nothing
+    where
+      g [] = False
+      g (y: ys) = f y
 
 eof :: Parser l ()
 eof = Parser $ \xs -> if null xs 
@@ -51,6 +59,11 @@ eof = Parser $ \xs -> if null xs
                         else Nothing
 
 compose :: Parser b c -> Parser a b -> Parser a c
-compose = undefined
+compose (Parser a) (Parser b) = Parser $ \x -> 
+  case b x of
+    Nothing -> Nothing
+    Just (c, d) -> case a [c] of
+      Nothing -> Nothing
+      Just (y, z) -> Just (y, d)
 
 

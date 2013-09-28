@@ -13,6 +13,8 @@ import java.io.*;
 public class ViewerWindow extends JFrame {
 
     private JTabbedPane tabbedPane;
+    private CloseAction closeAction;
+    private JButton btnClose;
 
     /**
      * Action to open file
@@ -47,6 +49,9 @@ public class ViewerWindow extends JFrame {
             int index = tabbedPane.getSelectedIndex();
             if (index != -1) {
                 tabbedPane.removeTabAt(index);
+                if (tabbedPane.getTabCount() == 0) {
+                    setCloseEnabled(false);
+                }
             }
         }
     }
@@ -107,6 +112,7 @@ public class ViewerWindow extends JFrame {
             textField.setText(sb.toString());
             tabbedPane.add(file.getName(), textField);
             tabbedPane.setSelectedComponent(textField);
+            setCloseEnabled(true);
         } catch (FileNotFoundException exc) {
             System.err.println("File " + file.getName() + " wasn't found");
         } catch (IOException exc) {
@@ -115,13 +121,22 @@ public class ViewerWindow extends JFrame {
     }
 
     /**
+     * Set the state of "Close" button and "Close" menu item
+     * @param enabled state to set
+     */
+    private void setCloseEnabled(boolean enabled) {
+        closeAction.setEnabled(enabled);
+        btnClose.setEnabled(enabled);
+    }
+
+    /**
      * Creates form elements (buttons, menus etc.)
      */
     private void createControls() {
         OpenAction openAction = new OpenAction();
-        CloseAction closeAction = new CloseAction();
         ExitAction exitAction = new ExitAction();
         AboutAction aboutAction = new AboutAction();
+        closeAction = new CloseAction();
 
         JMenuBar mainMenu = new JMenuBar();
         JMenu fileMenu = new JMenu("File");
@@ -139,7 +154,7 @@ public class ViewerWindow extends JFrame {
         setJMenuBar(mainMenu);
 
         JButton btnOpen = new JButton("Open");
-        JButton btnClose = new JButton("Close");
+        btnClose = new JButton("Close");
         JButton btnExit = new JButton("Exit");
         JButton btnAbout = new JButton("About");
 
@@ -151,6 +166,11 @@ public class ViewerWindow extends JFrame {
         leftBox.add(btnAbout);
         leftBox.add(btnExit);
 
+        btnOpen.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnClose.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnExit.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnAbout.setAlignmentX(Component.CENTER_ALIGNMENT);
+
         btnOpen.addActionListener(openAction);
         btnClose.addActionListener(closeAction);
         btnExit.addActionListener(exitAction);
@@ -160,5 +180,7 @@ public class ViewerWindow extends JFrame {
 
         getContentPane().add(leftBox, BorderLayout.WEST);
         getContentPane().add(tabbedPane);
+
+        setCloseEnabled(false);
     }
 }

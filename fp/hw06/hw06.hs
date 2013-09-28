@@ -16,18 +16,27 @@ height (Node v c) = 1 + maximum (map height c)
 -- (b) Возвращает среднее арифметическое значений во всех узлах дерева
 -- Необходимо вычислить эту функцию, выполнив один проход по дереву
 avg :: Tree Int -> Int
-avg t = fst p `div` snd p
+avg t = let p = browse t in fst p `div` snd p
   where 
-    p = browse t
-    browse (Node v []) = (v, 1)
-    browse (Node v c) = (0, 0)
+    browse tr = case children tr of
+      [] -> (value tr, 1)
+      (x:xs) -> (sum + value tr, count + 1)
+        where
+          (sum, count) = foldr browseh (0, 0) (x:xs)
+          browseh t1 (sm, cnt) = (sm + smc, cnt + cntc)
+            where
+              (smc, cntc) = browse t1
 
 -- (c) Возвращает ширину дерева
 -- Ширина дерева определяется следующим образом:
 -- Количество вершин на определенном уровне называется шириной уровня.
 -- Ширина дерева - это максимальная ширина уровня по всем уровням.
 width :: Tree a -> Int
-width = undefined
+width t = maximum (helper [0] (children t))
+  where
+    helper ws [] = ws
+    helper ws ts = helper ((length ts):ws) (childrenlist ts)
+    childrenlist ts = concat (map children ts) 
 
 -- tests
 
@@ -91,7 +100,23 @@ type Board a = M.Map (Integer, Integer) a
 -- runGobo p b i j запускает программу p на карте b с начальной позициец Гобо (0, 0)
 -- и с пустыми руками. Возвращает список изученных объектов.
 runGobo :: Program -> Board a -> [a]
-runGobo = undefined
+runGobo p b = runh p b Nothing 0 0 
+  where
+    runh [] _ _ _ _= []
+    runh (c:cmds) b items x y = case c of
+      Go L -> runh cmds b items (x-1) y
+      Go R -> runh cmds b items (x+1) y
+      Go U -> runh cmds b items x (y-1)
+      Go D -> runh cmds b items x (y+1)
+      Do Take -> case (M.lookup(x, y) b, items) of
+	(Just item, Nothing) -> runh cmds (M.delete (x, y) b) (Just item) x y
+	_ -> runh cmds b items x y
+      Do Drop -> case (M.lookup (x,y) b, items) of
+	(Nothing, Just item) -> runh cmds (M.insert (x,y) item b) Nothing x y
+	_ -> runh cmds b items x y
+      Do Inspect -> case (M.lookup(x,y) b) of
+	Nothing -> runh cmds b items x y
+	Just item -> item:(runh cmds b items x y)
 
 -- tests
 
@@ -128,7 +153,53 @@ type Error = String
 -- eval возвращает либо успешно вычисленный результат, либо список ошибок.
 -- Ошибки бывают двух видов: необъявленная переменная и несоответствие типов.
 eval :: M.Map String Value -> Expr -> Either [Error] Value
-eval = undefined
+eval m (BinOp Plus el er)     = execWithInteger m (+) el er
+eval m (BinOp Mul el er)      = execWithInteger m (*) el er 
+eval m (BinOp Minus el er)    = execWithInteger m (-) el er
+eval m (BinOp Less el er)     = execWithBoolean m (<) el er
+eval m (BinOp Greater el er)  = execWithBoolean m (>) el er
+eval m (BinOp Equals el er)   = execWithBoolean m (==) el er
+
+eval m (UnOp Neg e) = case eval m e of 
+  Left error  -> Left error
+  Right (B _) -> Left["Type mismatch"]
+  Right (I v) -> Right (I (-v))
+
+eval m (UnOp Not e) = case eval m e of 
+  Left error  -> Left error
+  Right (I _) -> Left["Type mismatch"]
+  Right (B v) -> Right (B (not v))
+
+eval m (Const v) = Right v
+
+eval m (Let x el er) = case eval m el of 
+  Left error  -> Left error
+  Right v   -> eval (M.insert x v m) er
+
+eval m (If cond el er) = case eval m cond of
+  Left error  -> Left error
+  Right (I _) -> Left["Type mismatch"]
+  Right (B v) -> if v then eval m el else eval m er
+
+eval m (Var v) = case M.lookup v m of
+  Nothing -> Left ["Undefined variable"]
+  Just v  -> Right v
+  
+execWithInteger m op el er = case eval m el of
+  Left error   -> Left error
+  Right (B _)  -> Left ["Type mismatch"]
+  Right (I v1) -> case eval m er of
+    Left error1   -> Left error1
+    Right (B _)  -> Left ["Type mismatch"]
+    Right (I v2) -> Right (I (op v1 v2))
+   
+execWithBoolean m op el er = case eval m el of
+  Left error        -> Left error
+  Right (B _ )  -> Left ["Type mismatch"]
+  Right (I v1)  -> case eval m er of
+    Left error1      -> Left error1
+    Right (B _)   -> Left ["Type mismatch"]
+    Right (I v2)  -> Right (B (op v1 v2))
 
 -- tests
 
@@ -152,19 +223,45 @@ testsExpr = [ eval M.empty expr1 ~?= Right (I (-42))
 data Map k v = Leaf | Branch k v (Map k v) (Map k v)
 
 lookup :: Ord k => k -> Map k v -> Maybe v
-lookup = undefined
+lookup k Leaf = Nothing
+lookup k (Branch key val l r) 
+  | k == key  = Just val
+  | k < key = lookup k l
+  | otherwise = lookup k r
 
 insert :: Ord k => k -> v -> Map k v -> (Map k v, Maybe v)
-insert = undefined
+insert k v m = (inserth k v m, lookup k m)
+  where
+    inserth k v Leaf = Branch k v Leaf Leaf
+    inserth k v (Branch key value l r) 
+      | k == key = Branch key value l r
+      | k < key = Branch key value (inserth k v l) r
+      | otherwise = Branch key value l (inserth k v r)
 
 delete :: Ord k => k -> Map k v -> Maybe (Map k v)
-delete = undefined
+delete k Leaf = Just Leaf
+delete k (Branch key value l r) 
+  | k < key = deleteFromLeft $ delete k l
+  | k > key = deleteFromRight $ delete k r
+  | otherwise = Just $ merge l r
+    where
+      deleteFromLeft (Just t) = Just $ Branch key value t r
+      deleteFromLeft _ = Nothing
+      deleteFromRight (Just t) = Just $ Branch key value l t
+      deleteFromRight _ = Nothing
+      merge t Leaf = t
+      merge Leaf t = t
+      merge (Branch k1 v1 l1 r1) t = Branch k1 v1 l1 $ merge r1 t
 
 fromList :: Ord k => [(k, v)] -> Map k v
-fromList = undefined
+fromList ps = fromlisth ps Leaf
+  where
+    fromlisth (p:ps) t = fromlisth ps $ fst $ insert (fst p) (snd p) t
+    fromlisth [] t = t
 
 toList :: Map k v -> [(k, v)]
-toList = undefined
+toList Leaf = []
+toList (Branch k v l r) = (toList l) ++ [(k,v)] ++ (toList r)
 
 -- tests
 

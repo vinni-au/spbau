@@ -7,7 +7,7 @@ import java.util.*;
  *
  * @author Anton Storozhev
  */
-public class TreeNode {
+public class TreeNode implements Comparable<TreeNode> {
     /**
      * Constructs a TreeNode with given string
      * @param text String
@@ -48,6 +48,22 @@ public class TreeNode {
         childNodes.add(child);
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int compareTo(TreeNode o) {
+        return nodeText.compareTo(o.getNodeText());
+    }
+
+    /**
+     * Sorts child nodes
+     */
+    public void sortChildNodes() {
+        Collections.sort(childNodes);
+    }
+
     private String nodeText;
-    private List<TreeNode> childNodes = new ArrayList<TreeNode>();
+    private List<TreeNode> childNodes = new ArrayList<>();
+
 }

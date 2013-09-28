@@ -9,19 +9,76 @@ import Eval
 import Utils
 
 getInt :: Eval Value -> Eval Integer
-getInt m = undefined
+getInt m = do
+  res <- try m
+  case res of
+    Just (I x) -> return x
+    _ -> mzero
 
 getBool :: Eval Value -> Eval Bool
-getBool m = undefined
+getBool m = do
+  res <- try m
+  case res of
+    Just (B x) -> return x
+    _ -> mzero
 
 if' :: Eval Value -> Eval a -> Eval a -> Eval a
-if' c t e = undefined
+if' c t e = do
+  res <- try c
+  case res of
+    Just (B True) -> t
+    Just (B False) -> e
+    _ -> mzero
 
 evalExpr :: Expr -> Eval Value
-evalExpr = undefined
+evalExpr (Const a) = return a
+evalExpr (Var v) = getVar v
+evalExpr (UnOp op expr) = do
+  res <- evalExpr expr
+  case res of
+    I v -> case op of
+      Neg -> return (I (-v))
+      Not -> mzero
+    B v -> case op of
+      Neg -> mzero
+      Not -> return (B (not v))
 
+evalExpr (BinOp Plus e1 e2)   = liftM2' (\a b -> I (a + b)) (getInt $ evalExpr e1) (getInt $ evalExpr e2)
+evalExpr (BinOp Minus e1 e2)  = liftM2' (\a b -> I (a - b)) (getInt $ evalExpr e1) (getInt $ evalExpr e2)
+evalExpr (BinOp Mul e1 e2)    = liftM2' (\a b -> I (a * b)) (getInt $ evalExpr e1) (getInt $ evalExpr e2)
+evalExpr (BinOp And e1 e2)    = liftM2' (\a b -> B (a && b)) (getBool $ evalExpr e1) (getBool $ evalExpr e2)
+evalExpr (BinOp Or e1 e2)     = liftM2' (\a b -> B (a || b)) (getBool $ evalExpr e1) (getBool $ evalExpr e2)
+evalExpr (BinOp Less e1 e2)   = liftM2' (\a b -> B (a < b)) (getInt $ evalExpr e1) (getInt $ evalExpr e2)
+evalExpr (BinOp Greater e1 e2)= liftM2' (\a b -> B (a > b)) (getInt $ evalExpr e1) (getInt $ evalExpr e2)
+evalExpr (BinOp Equals e1 e2) = do
+    res <- liftM2' (\a b -> eq a b) (evalExpr e1) (evalExpr e2)
+    case res of
+        Just v -> return v
+        Nothing -> mzero
+    where
+        eq (I a) (I b) = Just $ B (a == b)
+        eq (B a) (B b) = Just $ B (a == b)
+        _ = Nothing
+	
 evalStat :: Stat -> Eval ()
-evalStat = undefined
+evalStat (Comp []) = return ()
+evalStat (Comp (s:ss)) = do
+  evalStat s
+  evalStat (Comp ss)
+   
+evalStat (Assign v e) = do
+  result <- try (evalExpr e)
+  case result of
+    Just a -> update v a
+    Nothing -> mzero
+    
+evalStat (While e s) = if' (evalExpr e) 
+    (do 
+        evalStat s
+        evalStat (While e s))
+    (return ())
+    
+evalStat (If e s1 s2) = if' (evalExpr e) (evalStat s1) (evalStat s2)
 
 evalProg :: Prog -> Eval ()
 evalProg (Prog ss) = evalStat (Comp ss)

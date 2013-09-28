@@ -39,6 +39,10 @@ public class Main {
 		lsl.add(new LightBulb());
 		lsl.add(g);
 		CompositeLightingSystem ls = new CompositeLightingSystem(lsl);
+		List<Illuminant> lsl2 = new ArrayList<>();
+		lsl2.add(ls);
+		lsl2.add(new LightBulb());
+		CompositeLightingSystem ls2 = new CompositeLightingSystem(lsl2);
 
 		System.out.println("--------- Checking lightbulb iterator ----------");
 		for (LightBulb bulb : new LightBulb()) {
@@ -59,7 +63,7 @@ public class Main {
 		System.out.println();
 		
 		System.out.println("--------- Checking composite LS iterator -----------");
-		for (LightBulb bulb : ls) {
+		for (LightBulb bulb : ls2) {
 			System.out.println("Found lightbulb: " + bulb.toString());
 		}
 	}

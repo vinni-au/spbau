@@ -19,12 +19,7 @@ public class Main {
             return;
         }
 
-        FilesystemWalker walker = null;
-        try {
-            walker = new FilesystemWalker(args[0]);
-            walker.printTree();
-        } catch (FileNotFoundException e) {
-            System.err.println("Couldn't find directory \"" + args[0] + '\"');
-        }
+        FilesystemWalker walker = new FilesystemWalker(args[0]);
+        walker.printTree();
     }
 }

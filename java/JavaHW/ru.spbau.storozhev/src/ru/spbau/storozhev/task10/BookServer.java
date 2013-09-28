@@ -1,5 +1,6 @@
 package ru.spbau.storozhev.task10;
 
+
 /**
  * @author Anton Storozhev
  */

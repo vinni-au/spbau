@@ -9,11 +9,12 @@ data Counter a = Counter Int a
 
 -- Возвращает результат вычислений и количество тиков
 runCounter :: Counter a -> (a, Int)
-runCounter = undefined
+runCounter (Counter t v) = (v, t)
 
 instance Monad Counter where
-    return = undefined
-    (>>=) = undefined
+    return a = Counter 0 a
+    (>>=) (Counter n a) f = let (Counter c d) = f a in
+      Counter (c+n) d
 
 tick :: Counter ()
-tick = undefined
+tick = Counter 1 ()

@@ -29,6 +29,9 @@ public class Main {
             System.err.println("File \"" + filename + "\" wasn't found");
         }
 
+        if (fileMessageReader == null)
+            return;
+
         MessageWriter messageWriter = null;
         try {
             if (args.length > 1) {
@@ -42,26 +45,29 @@ public class Main {
             System.err.println("Output file wasn't found");
         }
 
-        try {
-            Message message = fileMessageReader.readMessage();
-            while (message != null) {
-                messageWriter.writeMessage(message);
-                message = fileMessageReader.readMessage();
+        if (messageWriter != null) {
+            try {
+                Message message = fileMessageReader.readMessage();
+                while (message != null) {
+                    messageWriter.writeMessage(message);
+                    message = fileMessageReader.readMessage();
+                }
+            } catch (IllegalMessageFormatException e) {
+                System.err.println("Error: Message has inappropriate format");
+            } catch (IOException e) {
+                System.err.println("IOException occurred: " + e.getMessage());
+            } finally {
+                try {
+                    messageWriter.close();
+                } catch (IOException e) {
+                    System.err.println("Strange IOException happened while trying to close MessageWriter");
+                }
             }
-        } catch (IllegalMessageFormatException e) {
-            System.err.println("Error: Message has inappropriate format");
-        } catch (IOException e) {
-            System.err.println("IOException occurred: " + e.getMessage());
         }
 
         try {
-            messageWriter.close();
-        } catch (IOException e) {
-            System.err.println("Error: can't close MessageWriter");
-        }
-
-        try {
-            fileMessageReader.close();
+            if (fileMessageReader != null)
+                fileMessageReader.close();
         } catch (IOException e) {
             System.err.println("Error: can't close FileMessageReader");
         }

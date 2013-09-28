@@ -55,15 +55,26 @@ shiftL (x:xs) = xs ++ [x]
 
 -- shiftR переставляет последний элемент в начало. Реализуйте эту функцию так, чтобы она проходила по списку только один раз.
 shiftR :: [a] -> [a]
-shiftR xs = shiftRh xs []
-  where
-    shiftRh [] _ = []
+shiftR [] = []
+shiftR xs = let res = shiftRh ([], xs) in snd res ++ fst res
+  where 
+    shiftRh (l, [x]) = (l, [x])
+    shiftRh (l, (x:xs)) = shiftRh (l ++ [x], xs) 
+
 
 -- 6. swap i j меняет местами i и j элементы.
 swap :: Int -> Int -> [a] -> [a]
-swap i j xs = swaph (min (i,j)) (max (i,j)) xs
+swap i j xs = trueswap (min i j) (max i j) xs
   where
-    swaph = undefined
+    trueswap mi ma xs = swaph ([], [], []) (zip [0..] xs)
+      where
+        swaph (l1, l2, l3) [] = l1 ++ l2 ++ l3
+        swaph (l1, l2, l3) (x:xs) 
+          | fst x < mi  = swaph (l1 ++ [snd x], l2, l3) xs
+          | fst x == mi = swaph (l1, l2 ++ [snd x], l3) xs
+          | fst x < ma  = swaph (l1, l2, l3 ++ [snd x]) xs
+          | fst x == ma = l1 ++ [snd x] ++ l3 ++ l2 ++ (map snd xs)
+                                            
 
 -- 7. takeLast n xs возвращает последние n элементов списка xs.
 takeLast :: Int -> [a] -> [a]
@@ -79,7 +90,14 @@ takeLast n zs = takeh n (reverse zs) []
 -- которые разделяются плохими, отправляет в функцию f и возвращает список результатов.
 -- Заметьте, что в функцию f никогда не передаются пустые списки.
 mapl :: (a -> Bool) -> ([a] -> b) -> [a] -> [b]
-mapl p f xs = undefined
+mapl p f xs = map f (filter (not . null) (fst (maplh ([], xs)))
+  where 
+    makeblock (a, []) = (a, [])
+    makeblock (a, (x:xs)) 
+      | (p x) = makeblock (a ++ [x], xs) 
+      | otherwise = (a, xs)
+    maplh (a, []) = (a, [])
+    maplh (a, b) = let res = makeblock([], b) in maplh (a ++ [fst res], snd res)
 
 main = fmap (\_ -> ()) $ runTestTT $ test
     $    label "fun"
